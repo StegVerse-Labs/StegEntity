@@ -1,0 +1,28 @@
+import json
+from pathlib import Path
+from typing import Any, Dict
+
+from .hashutil import sha256_json
+from .timeutil import now_text
+
+def make_receipt(*, receipt_type: str, capsule_hash: str, capsule_id: str, actor_receipt_id: str, authority_token_id: str, adapter: str, target: str, result: Dict[str, Any]) -> Dict[str, Any]:
+    body = {
+        "schema": {"name": "stegverse.stegentity.execution_receipt", "version": "0.1.0"},
+        "receipt_type": receipt_type,
+        "issued_at": now_text(),
+        "capsule_id": capsule_id,
+        "capsule_hash": capsule_hash,
+        "actor_receipt_id": actor_receipt_id,
+        "authority_token_id": authority_token_id,
+        "adapter": adapter,
+        "target": target,
+        "result": result,
+    }
+    body["receipt_hash"] = sha256_json(body)
+    return body
+
+def write_json(path: Path, data: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    tmp.replace(path)
