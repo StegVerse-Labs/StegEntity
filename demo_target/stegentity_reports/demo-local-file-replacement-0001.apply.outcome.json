@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "mode": "apply",
+  "created_at": "2026-05-18T13:21:56Z",
+  "capsule_id": "demo-local-file-replacement-0001",
+  "capsule_hash": "sha256:bd33822188fd3cde57d39ca2d90de3bcef6e16fe31b02638c6f64dadfea67466",
+  "receipt_path": "/mnt/data/StegEntity/demo_target/stegentity_receipts/demo-local-file-replacement-0001.execution_receipt.json",
+  "receipt_hash": "sha256:cce165372e3a95b5de0cf243719a18663efd1d4843a55481f759769d20ee64e6",
+  "result": {
+    "adapter": "local_fs",
+    "root": "/mnt/data/StegEntity/demo_target",
+    "operations": [
+      {
+        "op_id": "op-write-hello",
+        "operation": "create_or_replace",
+        "destination": "hello.txt",
+        "resolved_destination": "/mnt/data/StegEntity/demo_target/hello.txt",
+        "created": true,
+        "replaced": false,
+        "appended": false,
+        "backup_path": null,
+        "expected_sha256": null,
+        "written_sha256": "sha256:30cd6ca70ae24b66cbfec2b0414543f47478f096bb4f9fae951c968a6414b93d",
+        "verified": true
+      }
+    ]
+  }
+}
