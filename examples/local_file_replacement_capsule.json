@@ -1,0 +1,49 @@
+{
+  "schema": {
+    "name": "stegverse.maintenance_capsule",
+    "version": "0.1.0"
+  },
+  "capsule_id": "demo-local-file-replacement-0001",
+  "created_at": "2026-05-18T13:21:29Z",
+  "target": {
+    "adapter": "local_fs",
+    "target_id": "demo_target"
+  },
+  "transition": {
+    "transition_id": "T-120",
+    "transition_name": "File Creation",
+    "transition_family": "Installation"
+  },
+  "admissibility": {
+    "decision": "ALLOW",
+    "basis": "demo authority token and receipt"
+  },
+  "dependencies": [
+    "local filesystem write permission"
+  ],
+  "consequences": [
+    "demo_target/hello.txt will be created or replaced"
+  ],
+  "rollback_plan": [
+    "restore from stegentity_state/backups if prior file existed"
+  ],
+  "verification": {
+    "required": true,
+    "method": "sha256_after_write"
+  },
+  "operations": [
+    {
+      "op_id": "op-write-hello",
+      "operation": "create_or_replace",
+      "destination": "hello.txt",
+      "content_b64": "SGVsbG8gZnJvbSBTdGVnRW50aXR5IGxvY2FsX2ZzIGFkYXB0ZXIuCg==",
+      "expected_sha256": null,
+      "required_scopes": [
+        "local_fs:write"
+      ],
+      "description": "Write hello.txt inside demo target.",
+      "allow_create": true,
+      "allow_replace": true
+    }
+  ]
+}

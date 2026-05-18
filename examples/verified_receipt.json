@@ -1,0 +1,15 @@
+{
+  "receipt_id": "demo-receipt-0001",
+  "actor_class": "ai",
+  "scopes": [
+    "local_fs:write"
+  ],
+  "issued_at": "2026-05-18T13:21:39Z",
+  "expires_at": "2026-05-18T13:51:39Z",
+  "assurance_level": 2,
+  "signals": [],
+  "issuer": "stegid",
+  "kid": "demo-key",
+  "payload_hash": "sha256:bd33822188fd3cde57d39ca2d90de3bcef6e16fe31b02638c6f64dadfea67466",
+  "sig": "demo-signature-owned-by-stegid-in-production"
+}

@@ -1,0 +1,13 @@
+{
+  "token_id": "demo-tvc-token-0001",
+  "status": "ALLOW",
+  "adapter": "local_fs",
+  "target": "demo_target",
+  "scopes": [
+    "local_fs:write"
+  ],
+  "issued_at": "2026-05-18T13:21:39Z",
+  "expires_at": "2026-05-18T13:51:39Z",
+  "capsule_hash": "sha256:bd33822188fd3cde57d39ca2d90de3bcef6e16fe31b02638c6f64dadfea67466",
+  "receipt_hash": "sha256:bd33822188fd3cde57d39ca2d90de3bcef6e16fe31b02638c6f64dadfea67466"
+}
