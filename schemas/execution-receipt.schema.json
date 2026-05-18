@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StegEntity Execution Receipt",
+  "type": "object",
+  "required": [
+    "schema",
+    "receipt_type",
+    "issued_at",
+    "capsule_id",
+    "capsule_hash",
+    "actor_receipt_id",
+    "authority_token_id",
+    "adapter",
+    "target",
+    "result",
+    "receipt_hash"
+  ]
+}

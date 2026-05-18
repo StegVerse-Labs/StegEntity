@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StegID-style Verified Receipt",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "actor_class",
+    "scopes",
+    "issued_at",
+    "expires_at",
+    "assurance_level",
+    "issuer",
+    "kid",
+    "payload_hash",
+    "sig"
+  ]
+}
