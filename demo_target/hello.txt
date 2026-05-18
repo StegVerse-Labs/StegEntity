@@ -1,0 +1,1 @@
+Hello from StegEntity local_fs adapter.
