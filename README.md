@@ -2,6 +2,8 @@
 
 StegEntity is the platform-agnostic runtime environment for governed AI entities in the StegVerse ecosystem.
 
+Current activation posture: see `ACTIVATION_STATUS.md`.
+
 It hosts and constrains AI-role expressions including:
 
 - `StegBot`
@@ -114,6 +116,8 @@ Run the local activation check:
 python tools/check_repo_activation.py
 ```
 
+For activation status, see `ACTIVATION_STATUS.md`.
+
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
@@ -193,6 +197,8 @@ For role field schema notes, see `docs/STEGENTITY_ROLE_FIELD_SCHEMA.md`.
 For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`.
 
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
+
+For activation status, see `ACTIVATION_STATUS.md`.
 
 ## Relationship to StegID
 
