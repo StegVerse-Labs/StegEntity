@@ -48,11 +48,17 @@ def role_context_warnings(role_context: Dict[str, Any]) -> List[str]:
 def apply_role_context_blocks(role_context: Dict[str, Any]) -> List[str]:
     """Return apply-time role context blocks.
 
-    This is the first narrow hard-enforcement slice. It blocks only unknown
-    declared role transitions during apply. Validation and dry-run remain
-    warning-only.
+    This is a narrow hard-enforcement slice. It blocks unknown declared role
+    transitions and invalid completion invariant types during apply. Validation
+    and dry-run remain warning-only.
     """
+    blocks: List[str] = []
     role_transition = role_context.get("role_transition")
     if role_transition is not None and str(role_transition) not in KNOWN_ROLE_TRANSITIONS:
-        return [f"role_context_unknown_role_transition:{role_transition}"]
-    return []
+        blocks.append(f"role_context_unknown_role_transition:{role_transition}")
+
+    completion_required = role_context.get("completion_invariant_required")
+    if completion_required is not None and not isinstance(completion_required, bool):
+        blocks.append("role_context_completion_invariant_required_must_be_bool")
+
+    return blocks
