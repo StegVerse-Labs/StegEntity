@@ -1,0 +1,30 @@
+{
+  "schema": "stegverse.master_records.monitoring.manifest.v1",
+  "generated": "2026-06-14",
+  "namespace": "master-records/monitoring",
+  "status": "initialized",
+  "files": [
+    "README.md",
+    "org-status.json",
+    "repo-status.json",
+    "node-status.json",
+    "ingestion-events/TEMPLATE.json",
+    "blocked-events/TEMPLATE.json",
+    "governance-overrides/TEMPLATE.json",
+    "schema-adoption/index.json",
+    "artifact-history/index.json",
+    "receipt-reference-index/index.json"
+  ],
+  "required_monitoring_domains": [
+    "org_status",
+    "repo_status",
+    "node_status",
+    "ingestion_events",
+    "blocked_events",
+    "governance_overrides",
+    "schema_adoption",
+    "artifact_history",
+    "receipt_reference_index"
+  ],
+  "next_required_action": "route future cross-org and cross-repo implementation updates through ingestible task packets"
+}
