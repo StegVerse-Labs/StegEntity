@@ -1,0 +1,25 @@
+{
+  "note": "This is a non-executable role symmetry fragment. It is not a full maintenance capsule and is not used by the demo runner.",
+  "role_context": {
+    "actor_role": "StegAgent",
+    "counterparty_role": "StegEntity",
+    "role_transition": "RT-002",
+    "role_constraint": "proposal_not_execution",
+    "symmetry_basis": "receipt+tvc+capsule",
+    "completion_invariant_required": true
+  },
+  "example_interpretation": {
+    "actor_role": "The role that formed or advanced the proposal.",
+    "counterparty_role": "The role expected to validate or execute the admissible transition.",
+    "role_transition": "The declared transition class from docs/STEGENTITY_ROLE_SYMMETRY.md.",
+    "role_constraint": "The boundary preventing role overreach.",
+    "symmetry_basis": "The evidence convergence required before role posture can become action posture.",
+    "completion_invariant_required": "Whether StegEntity completion requirements must be satisfied before reporting completion."
+  },
+  "blocked_inference": [
+    "A proposal does not authorize execution.",
+    "Adapter capability does not create admissibility.",
+    "Dry-run success does not create apply authority.",
+    "Platform mutation does not equal StegVerse completion."
+  ]
+}
