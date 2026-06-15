@@ -8,7 +8,7 @@ from .capsule import MaintenanceCapsule
 from .errors import ValidationError
 from .receipt import VerifiedReceipt
 from .receipts import make_receipt, write_json
-from .role_context import apply_role_context_blocks, role_context_warnings
+from .role_context import apply_role_context_blocks, role_context_warnings, role_enforcement_result
 from .timeutil import now_text
 
 class StegEntityRuntime:
@@ -22,12 +22,13 @@ class StegEntityRuntime:
             return LocalFSAdapter(self.root)
         raise ValidationError(f"unsupported_adapter:{capsule.adapter}")
 
-    def _with_role_context(self, capsule: MaintenanceCapsule, data: Dict[str, Any]) -> Dict[str, Any]:
+    def _with_role_context(self, capsule: MaintenanceCapsule, data: Dict[str, Any], mode: str) -> Dict[str, Any]:
         if capsule.role_context:
             data["role_context"] = dict(capsule.role_context)
         warnings = role_context_warnings(capsule.role_context)
         if warnings:
             data["role_context_warnings"] = warnings
+        data["role_enforcement"] = role_enforcement_result(capsule.role_context, mode)
         return data
 
     def _enforce_apply_role_context(self, capsule: MaintenanceCapsule) -> None:
@@ -52,13 +53,13 @@ class StegEntityRuntime:
             "target": capsule.target,
             "operation_count": len(capsule.operations),
             "required_scopes": capsule.required_scopes(),
-        })
+        }, "validate")
 
     def dry_run(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
         adapter = self._adapter(capsule)
         result = adapter.dry_run(capsule.operations)
-        outcome = self._with_role_context(capsule, {"status": "ok", "mode": "dry_run", "created_at": now_text(), "capsule_id": capsule.capsule_id, "capsule_hash": capsule_hash, "result": result})
+        outcome = self._with_role_context(capsule, {"status": "ok", "mode": "dry_run", "created_at": now_text(), "capsule_id": capsule.capsule_id, "capsule_hash": capsule_hash, "result": result}, "dry_run")
         self._write_outcome(capsule.capsule_id, "dry_run", outcome)
         return outcome
 
@@ -89,7 +90,7 @@ class StegEntityRuntime:
             "receipt_path": str(receipt_path),
             "receipt_hash": receipt_body["receipt_hash"],
             "result": result,
-        })
+        }, "apply")
         self._write_outcome(capsule.capsule_id, "apply", outcome)
         return outcome
 
