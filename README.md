@@ -48,6 +48,7 @@ It includes:
 - Execution receipt generation.
 - Outcome report generation.
 - Blocked apply outcome reporting without mutation.
+- Non-execution `blocked_apply` receipt artifacts for refused apply attempts.
 - A complete demo capsule.
 - A complete local demo runner.
 - Role symmetry doctrine.
@@ -73,7 +74,7 @@ This repo does not issue TV/TVC tokens. It consumes TVC-style authority tokens s
 
 This repo does not mint StegID receipts. It consumes StegID-style verified receipt JSON so that the runtime can be integrated with StegID receipt minting and verification.
 
-This repo does not yet fully enforce role transitions across all runtime modes. It preserves role context, emits warning-only findings for validate and dry-run, requires complete role context at apply time, writes blocked apply outcome reports without mutation, emits visible role enforcement posture in runtime outputs, and preserves apply-time role enforcement posture in execution receipts.
+This repo does not yet fully enforce role transitions across all runtime modes. It preserves role context, emits warning-only findings for validate and dry-run, requires complete role context at apply time, writes refused apply outcome reports without mutation, emits non-execution refusal receipts, emits visible role enforcement posture in runtime outputs, and preserves apply-time role enforcement posture in execution receipts.
 
 ## Quick Start
 
