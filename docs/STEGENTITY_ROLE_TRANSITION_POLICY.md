@@ -33,6 +33,9 @@ Current behavior:
 - apply blocks incomplete role context;
 - apply blocks unknown `role_transition` values;
 - apply blocks non-boolean `completion_invariant_required` values;
+- blocked apply attempts write `apply.blocked` outcome reports before raising;
+- blocked apply attempts do not mutate target state;
+- blocked apply attempts do not emit execution receipts;
 - validate, dry-run, and apply outputs include a visible `role_enforcement` result;
 - successful execution receipts include the apply-time `role_enforcement` result.
 
@@ -74,6 +77,7 @@ These conversions should never be silently allowed.
 | RB-000 | unknown_role_transition_on_apply | unknown role transition cannot authorize mutation | implemented for apply | block |
 | RB-000B | invalid_completion_invariant_type_on_apply | completion invariant posture must be explicit boolean when declared | implemented for apply | block |
 | RB-000C | missing_or_incomplete_role_context_on_apply | apply requires declared role posture | implemented for apply | block |
+| RB-000D | blocked_apply_without_outcome | blocked attempts must be reconstructable | implemented | block |
 | RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | planned | block |
 | RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | planned | block |
 | RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | planned | block |
@@ -93,7 +97,7 @@ Hard enforcement should be introduced in this order:
 2. Require `completion_invariant_required` to be boolean for apply. **Implemented.**
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
 4. Require full `role_context` for apply. **Implemented.**
-5. Echo role enforcement result in outcome reports. **Implemented for successful outputs.**
+5. Echo role enforcement result in outcome reports. **Implemented for successful and blocked outputs.**
 6. Include role enforcement result in execution receipts. **Implemented for successful apply receipts.**
 7. Extend enforcement to dry-run and validate only after apply behavior is stable.
 
@@ -112,7 +116,7 @@ completion_invariant_required
 
 ## Enforcement Result Shape
 
-Runtime outputs and successful execution receipts include:
+Runtime outputs, blocked outcome reports, and successful execution receipts include:
 
 ```json
 {
