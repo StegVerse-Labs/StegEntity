@@ -4,9 +4,9 @@
 
 This document defines the role-transition policy table for StegEntity.
 
-It is a design and enforcement-planning document. It does not change runtime behavior by itself.
+It is a design and enforcement-planning document. Runtime behavior must not exceed this document.
 
-The goal is to make hard enforcement reviewable before any runtime block rule is introduced.
+The goal is to make hard enforcement reviewable before each runtime block rule is introduced.
 
 ## Governing Rule
 
@@ -19,7 +19,7 @@ In StegEntity, a role transition is admissible only when the transition is decla
 Current stage:
 
 ```text
-warning-only validation
+Stage 3 partial soft block
 ```
 
 Current behavior:
@@ -27,9 +27,10 @@ Current behavior:
 - `role_context` is optional;
 - missing role context emits warnings;
 - incomplete role context emits warnings;
-- unknown role transitions emit warnings;
+- unknown role transitions emit warnings during validate and dry-run;
 - invalid field types emit warnings;
-- runtime execution is not blocked by role context warnings yet.
+- apply blocks unknown `role_transition` values;
+- validate and dry-run remain warning-only for unknown `role_transition` values.
 
 ## Enforcement Stages
 
@@ -42,7 +43,7 @@ Current behavior:
 | 4 | Required role context | Require complete role context for apply |
 | 5 | Full role enforcement | Enforce transition table across validate, dry-run, apply, receipts, and outcomes |
 
-StegEntity is currently at Stage 2.
+StegEntity is currently at Stage 3 partial soft block.
 
 ---
 
@@ -56,6 +57,7 @@ StegEntity is currently at Stage 2.
 | RT-004 | StegAgent | StegEntity | execution-requires-admissibility | warning-only | execution requires receipt, TVC token, capsule, adapter, target, verification, and completion invariant |
 | RT-005 | StegEntity | StegAgent | execution-to-report | warning-only | completion report requires verified outcome and execution receipt |
 | RT-006 | UserAI | StegEntity | delegated-user-action | warning-only | UserAI delegation must be current, scoped, receipt-bound, and target-bounded |
+| UNKNOWN | Any | Any | not allowed for apply | apply-blocked | unknown role transitions are blocked at apply time |
 
 ---
 
@@ -63,16 +65,17 @@ StegEntity is currently at Stage 2.
 
 These conversions should never be silently allowed.
 
-| Block ID | Conversion | Reason | Future Severity |
-|---|---|---|---|
-| RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | block |
-| RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | block |
-| RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | block |
-| RB-004 | platform_event_to_completion | platform mutation is not StegVerse completion | block |
-| RB-005 | prior_approval_to_current_authority | old approval may be stale or invalid | block |
-| RB-006 | recommendation_to_user_delegation | recommendation is not user-bound authority | block |
-| RB-007 | automation_to_open_ended_execution | automation scope must remain bounded | block |
-| RB-008 | missing_completion_invariant_to_complete | completion cannot be asserted without completion invariant evidence | block |
+| Block ID | Conversion | Reason | Current Status | Future Severity |
+|---|---|---|---|---|
+| RB-000 | unknown_role_transition_on_apply | unknown role transition cannot authorize mutation | implemented for apply | block |
+| RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | planned | block |
+| RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | planned | block |
+| RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | planned | block |
+| RB-004 | platform_event_to_completion | platform mutation is not StegVerse completion | planned | block |
+| RB-005 | prior_approval_to_current_authority | old approval may be stale or invalid | planned | block |
+| RB-006 | recommendation_to_user_delegation | recommendation is not user-bound authority | planned | block |
+| RB-007 | automation_to_open_ended_execution | automation scope must remain bounded | planned | block |
+| RB-008 | missing_completion_invariant_to_complete | completion cannot be asserted without completion invariant evidence | planned | block |
 
 ---
 
@@ -80,7 +83,7 @@ These conversions should never be silently allowed.
 
 Hard enforcement should be introduced in this order:
 
-1. Block unknown `role_transition` values for apply only.
+1. Block unknown `role_transition` values for apply only. **Implemented.**
 2. Require `completion_invariant_required` to be boolean for apply.
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
 4. Require full `role_context` for apply.
