@@ -1,0 +1,28 @@
+Waiting task
+
+Task: 2026-06-14-site-exchange-pages
+Assigned repo: StegVerse-Labs/Site
+Assigned worker: repo-worker-site
+Waiting since: 2026-06-15
+Tightness: balanced 55
+
+Waiting reason:
+- Site sample data file is present.
+- Site issue handoff is open.
+- Direct page creation did not complete through connector writes.
+- Page files need manual paste or later worker application.
+
+Pending files:
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+Resume condition:
+- both pending page files exist in Site
+- GitHub Pages path can be checked
+- Master-Records completion event can be recorded
+
+References:
+- master-records/tasks/assigned/2026-06-14-site-exchange-pages.txt
+- master-records/tasks/processing/2026-06-14-site-exchange-pages-retry-package.json
+- master-records/tasks/processing/site-exchange-pages-apply-note.txt
+- master-records/monitoring/site-issue-index.txt
