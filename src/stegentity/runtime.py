@@ -7,7 +7,7 @@ from .authority import AuthorityToken
 from .capsule import MaintenanceCapsule
 from .errors import ValidationError
 from .receipt import VerifiedReceipt
-from .receipts import make_receipt, write_json
+from .receipts import make_blocked_apply_receipt, make_receipt, write_json
 from .role_context import apply_role_context_blocks, role_context_warnings, role_enforcement_result
 from .timeutil import now_text
 
@@ -31,9 +31,24 @@ class StegEntityRuntime:
         data["role_enforcement"] = role_enforcement_result(capsule.role_context, mode)
         return data
 
-    def _enforce_apply_role_context(self, capsule: MaintenanceCapsule, capsule_hash: str) -> None:
+    def _enforce_apply_role_context(self, capsule: MaintenanceCapsule, capsule_hash: str, receipt: VerifiedReceipt, token: AuthorityToken) -> None:
         blocks = apply_role_context_blocks(capsule.role_context)
         if blocks:
+            role_enforcement = role_enforcement_result(capsule.role_context, "apply")
+            refusal = make_blocked_apply_receipt(
+                capsule_hash=capsule_hash,
+                capsule_id=capsule.capsule_id,
+                actor_receipt_id=receipt.receipt_id,
+                authority_token_id=token.token_id,
+                adapter=capsule.adapter,
+                target=capsule.target,
+                reason="role_context_apply_block",
+                blocks=blocks,
+                role_context=capsule.role_context,
+                role_enforcement=role_enforcement,
+            )
+            refusal_path = self.receipts_dir / f"{capsule.capsule_id}.blocked_apply_receipt.json"
+            write_json(refusal_path, refusal)
             outcome = self._with_role_context(capsule, {
                 "status": "blocked",
                 "mode": "apply",
@@ -44,6 +59,8 @@ class StegEntityRuntime:
                 "blocks": blocks,
                 "mutation_attempted": False,
                 "execution_receipt_emitted": False,
+                "blocked_apply_receipt_path": str(refusal_path),
+                "blocked_apply_receipt_hash": refusal["receipt_hash"],
             }, "apply")
             self._write_outcome(capsule.capsule_id, "apply.blocked", outcome)
             raise ValidationError(f"role_context_apply_block:{blocks}")
@@ -77,7 +94,7 @@ class StegEntityRuntime:
 
     def apply(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
-        self._enforce_apply_role_context(capsule, capsule_hash)
+        self._enforce_apply_role_context(capsule, capsule_hash, receipt, token)
         adapter = self._adapter(capsule)
         result = adapter.apply(capsule.operations, capsule.capsule_id)
         role_enforcement = role_enforcement_result(capsule.role_context, "apply")
