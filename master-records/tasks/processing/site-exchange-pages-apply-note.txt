@@ -1,0 +1,17 @@
+Site exchange pages apply note
+
+Task: 2026-06-14-site-exchange-pages
+Target repo: StegVerse-Labs/Site
+Status: ready for manual or worker application
+
+Completed target file:
+- data/governance/sample-exchange.json
+
+Pending target files:
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+Direct HTML creation in the Site repo was blocked by connector checks.
+The intended next route is manual iPhone paste or a later ingestion worker that can apply the same target paths.
+
+The pages should use the existing Site stylesheet at ../sv-shared.css and should remain static/browser-local until dynamic runner wiring is added.
