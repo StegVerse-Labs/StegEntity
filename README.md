@@ -53,6 +53,7 @@ It includes:
 - A complete local demo runner.
 - Role symmetry doctrine.
 - Role transition enforcement policy.
+- Repo activation doctrine.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - Apply-time required role context enforcement.
@@ -112,6 +113,8 @@ Run the local activation check:
 ```bash
 python tools/check_repo_activation.py
 ```
+
+For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
 
@@ -188,6 +191,8 @@ For symmetrical role constraints, see `docs/STEGENTITY_ROLE_SYMMETRY.md`.
 For role field schema notes, see `docs/STEGENTITY_ROLE_FIELD_SCHEMA.md`.
 
 For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`.
+
+For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 ## Relationship to StegID
 
