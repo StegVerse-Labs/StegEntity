@@ -1,0 +1,16 @@
+{
+  "schema": "stegverse.master_records.monitoring.receipt_reference_index.v1",
+  "generated": "2026-06-14",
+  "entries": [],
+  "entry_shape": {
+    "reference_id": null,
+    "source_org": null,
+    "source_repo": null,
+    "target_org": null,
+    "target_repo": null,
+    "task": null,
+    "decision": null,
+    "allowed_next_state": null,
+    "created_at": null
+  }
+}
