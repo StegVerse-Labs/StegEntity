@@ -56,6 +56,7 @@ It includes:
 - Role symmetry doctrine.
 - Role transition enforcement policy.
 - Repo activation doctrine.
+- Activation gap checklist.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - Apply-time required role context enforcement.
@@ -119,6 +120,8 @@ python tools/check_repo_activation.py
 For activation status, see `ACTIVATION_STATUS.md`.
 
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
+
+For remaining activation work, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
 
@@ -197,6 +200,8 @@ For role field schema notes, see `docs/STEGENTITY_ROLE_FIELD_SCHEMA.md`.
 For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`.
 
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
+
+For activation gaps, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
 
 For activation status, see `ACTIVATION_STATUS.md`.
 
