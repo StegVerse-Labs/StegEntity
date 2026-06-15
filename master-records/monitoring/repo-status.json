@@ -1,0 +1,33 @@
+{
+  "schema": "stegverse.master_records.monitoring.repo_status.v1",
+  "generated": "2026-06-14",
+  "repos": [
+    {
+      "repo": "StegVerse-org/StegVerse-SDK",
+      "role": "reference_implementation",
+      "implements": [
+        "governance_tightness",
+        "GAB",
+        "GAX",
+        "bundle_check",
+        "admissibility_receipt_reference"
+      ],
+      "status": "active_reference"
+    },
+    {
+      "repo": "StegVerse-Labs/StegEntity",
+      "role": "master_records_node_tracking",
+      "implements": [
+        "master_records_standards",
+        "master_records_monitoring"
+      ],
+      "status": "monitoring_initialized"
+    },
+    {
+      "repo": "StegVerse-Labs/Site",
+      "role": "public_demo_target",
+      "implements": [],
+      "status": "pending_gax_gab_export_import"
+    }
+  ]
+}
