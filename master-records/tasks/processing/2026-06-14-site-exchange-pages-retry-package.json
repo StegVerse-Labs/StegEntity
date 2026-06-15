@@ -1,0 +1,23 @@
+{
+  "schema": "stegverse.ingestion.retry_package.v1",
+  "task_id": "2026-06-14-site-exchange-pages",
+  "created_at": "2026-06-14",
+  "target_repo": "StegVerse-Labs/Site",
+  "status": "processing_retry_required",
+  "completed": [
+    "data/governance/sample-exchange.json"
+  ],
+  "pending": [
+    "governance/exchange-export.html",
+    "governance/exchange-check.html"
+  ],
+  "retry_mode": "smaller_site_patch_required",
+  "governance_tightness": {
+    "label": "balanced",
+    "scale": 55
+  },
+  "notes": [
+    "Direct Site HTML page creation was rejected by connector safety checks.",
+    "The task remains valid and should be retried as a smaller patch or manual iPhone paste operation."
+  ]
+}
