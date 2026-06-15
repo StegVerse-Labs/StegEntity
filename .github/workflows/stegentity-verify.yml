@@ -17,6 +17,12 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Build role context demo files
+        run: python tools/build_role_context_demo.py
+
+      - name: Verify generated role context demo files
+        run: python tools/verify_generated_role_context_demo.py
+
       - name: Run unit tests
         run: python -m unittest discover tests
 
