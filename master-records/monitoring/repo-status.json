@@ -12,22 +12,26 @@
         "bundle_check",
         "admissibility_receipt_reference"
       ],
-      "status": "active_reference"
+      "status": "active_reference",
+      "next_action": "provide ingestion task packet helper when cross-repo runner begins"
     },
     {
       "repo": "StegVerse-Labs/StegEntity",
       "role": "master_records_node_tracking",
       "implements": [
         "master_records_standards",
-        "master_records_monitoring"
+        "master_records_monitoring",
+        "monitoring_progress"
       ],
-      "status": "monitoring_initialized"
+      "status": "monitoring_foundation_active",
+      "next_action": "populate indexes from governed ingestion events"
     },
     {
       "repo": "StegVerse-Labs/Site",
       "role": "public_demo_target",
       "implements": [],
-      "status": "pending_gax_gab_export_import"
+      "status": "next_target",
+      "next_action": "add exchange export and import-check pages"
     }
   ]
 }
