@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~62%
+Repo completion: ~64%
 ```
 
 These are working estimates, not audited final metrics.
@@ -65,6 +65,7 @@ The StegEntity repo-level percentage should consider:
 - role context preservation in runtime outputs;
 - role context preservation in execution receipts;
 - warning-only role context validation;
+- apply-time required role context enforcement;
 - apply-time blocking for unknown role transitions;
 - apply-time blocking for invalid completion invariant type;
 - hash-bound role-context receipt and authority examples;
@@ -118,6 +119,7 @@ StegEntity is currently past scaffold stage because it includes:
 - optional role context execution receipt preservation;
 - warning-only role context validation;
 - runtime output of role context warnings;
+- apply-time required role context enforcement;
 - apply-time blocking for unknown role transitions;
 - apply-time blocking for invalid completion invariant type;
 - hash-bound role-context receipt and authority examples;
@@ -128,7 +130,7 @@ StegEntity is currently past scaffold stage because it includes:
 - local verification guide;
 - GitHub Actions verification workflow that builds and verifies generated role-context fixtures;
 - README verification and policy entry points;
-- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, role-context demo check script, apply-only unknown role-transition blocking, and apply-only completion invariant type blocking.
+- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, role-context demo check script, apply-only unknown role-transition blocking, apply-only completion invariant type blocking, and apply-only required role-context enforcement.
 
 StegEntity is not yet complete because it still needs:
 
