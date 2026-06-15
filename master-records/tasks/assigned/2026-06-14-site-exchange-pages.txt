@@ -1,0 +1,18 @@
+Assigned task
+
+Task: 2026-06-14-site-exchange-pages
+Assigned repo: StegVerse-Labs/Site
+Assigned worker: repo-worker-site
+Assignment date: 2026-06-15
+Tightness: balanced 55
+
+Current state:
+- sample data file exists in Site
+- Site issue is open
+- page files remain pending
+
+References:
+- master-records/tasks/incoming/2026-06-14-site-exchange-pages.json
+- master-records/tasks/processing/2026-06-14-site-exchange-pages-retry-package.json
+- master-records/tasks/processing/site-exchange-pages-apply-note.txt
+- master-records/monitoring/site-issue-index.txt
