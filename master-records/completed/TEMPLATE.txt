@@ -1,0 +1,27 @@
+Completed task template
+
+Task:
+
+Completed date:
+
+Source org:
+
+Source repo:
+
+Target org:
+
+Target repo:
+
+Assigned worker:
+
+Files applied:
+-
+
+Related issue or note:
+
+Previous lifecycle records:
+-
+
+Activation after completion:
+
+Next eligible task:
