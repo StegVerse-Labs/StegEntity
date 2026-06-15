@@ -8,7 +8,7 @@ from .capsule import MaintenanceCapsule
 from .errors import ValidationError
 from .receipt import VerifiedReceipt
 from .receipts import make_receipt, write_json
-from .role_context import role_context_warnings
+from .role_context import apply_role_context_blocks, role_context_warnings
 from .timeutil import now_text
 
 class StegEntityRuntime:
@@ -29,6 +29,11 @@ class StegEntityRuntime:
         if warnings:
             data["role_context_warnings"] = warnings
         return data
+
+    def _enforce_apply_role_context(self, capsule: MaintenanceCapsule) -> None:
+        blocks = apply_role_context_blocks(capsule.role_context)
+        if blocks:
+            raise ValidationError(f"role_context_apply_block:{blocks}")
 
     def validate_authority(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> str:
         capsule_hash = capsule.hash()
@@ -59,6 +64,7 @@ class StegEntityRuntime:
 
     def apply(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
+        self._enforce_apply_role_context(capsule)
         adapter = self._adapter(capsule)
         result = adapter.apply(capsule.operations, capsule.capsule_id)
         receipt_body = make_receipt(
