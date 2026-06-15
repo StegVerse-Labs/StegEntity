@@ -1,0 +1,81 @@
+{
+  "schema": "stegverse.master_records.ecosystem_node_implementation_standards.v1",
+  "generated": "2026-06-14",
+  "status": "active",
+  "scope": [
+    "nodes",
+    "orgs",
+    "repos",
+    "cross_org_ingestion",
+    "cross_repo_ingestion"
+  ],
+  "standards_source": {
+    "repo": "StegVerse-org/StegVerse-SDK",
+    "primary_files": [
+      "stegverse/governance_tightness.py",
+      "schemas/admissibility/governance-tightness.schema.json",
+      "stegverse/admissibility_bundle.py",
+      "stegverse/admissibility_exchange.py",
+      "stegverse/admissibility_replay.py",
+      "stegverse/admissibility_receipts.py"
+    ]
+  },
+  "standard_objects": {
+    "GAB": "Governed Admissibility Bundle",
+    "GAX": "Governed Admissibility Exchange",
+    "governance_tightness_profile": "Sliding-scale ingestion posture control",
+    "dynamic_admissibility_packet": "Discipline-aware test input shape",
+    "admissibility_receipt_reference": "Local stable reference to evaluated admissibility result",
+    "bundle_check": "Local re-evaluation and posture/hash comparison"
+  },
+  "governance_tightness": {
+    "schema": "stegverse.governance.tightness_profile.v1",
+    "ranges": [
+      {"min": 0, "max": 20, "label": "observe"},
+      {"min": 21, "max": 40, "label": "assist"},
+      {"min": 41, "max": 60, "label": "balanced"},
+      {"min": 61, "max": 80, "label": "strict"},
+      {"min": 81, "max": 100, "label": "fail_closed"}
+    ],
+    "accepted_inputs": [
+      "label",
+      "numeric_scale_0_100",
+      "mapping_with_scale",
+      "mapping_with_label"
+    ]
+  },
+  "required_ingestion_packet_fields": [
+    "schema",
+    "source_org",
+    "source_repo",
+    "target_org",
+    "target_repo",
+    "task",
+    "intent",
+    "proposed_files",
+    "governance_tightness",
+    "admissibility_bundle_or_gax_exchange"
+  ],
+  "node_expectations": [
+    "receive_task_packet",
+    "resolve_governance_tightness",
+    "verify_gax_when_present",
+    "verify_gab_when_present",
+    "run_bundle_check_when_bundle_present",
+    "refuse_mutation_when_required_posture_missing",
+    "emit_receipt_reference",
+    "preserve_master_records_metadata"
+  ],
+  "master_records_tracks": [
+    "standard_versions",
+    "schema_names",
+    "repo_implementation_status",
+    "org_implementation_status",
+    "node_compatibility",
+    "blocked_ingestion_events",
+    "tightness_overrides",
+    "receipt_references",
+    "gax_gab_exchange_history"
+  ],
+  "next_phase": "Create ingestible task packets for cross-org and cross-repo updates so ecosystem changes are routed through governed ingestion rather than direct per-repo edits."
+}
