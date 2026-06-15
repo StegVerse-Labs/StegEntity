@@ -1,0 +1,17 @@
+{
+  "schema": "stegverse.master_records.monitoring.blocked_event.v1",
+  "event_id": "blocked-event-template",
+  "observed_at": null,
+  "source_org": null,
+  "source_repo": null,
+  "target_org": null,
+  "target_repo": null,
+  "task": null,
+  "governance_tightness": null,
+  "blocked_reason": null,
+  "required_follow_up": [],
+  "admissibility_reference": null,
+  "gax_reference": null,
+  "gab_reference": null,
+  "re_evaluation_status": "not_started"
+}
