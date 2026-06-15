@@ -21,6 +21,11 @@ class StegEntityRuntime:
             return LocalFSAdapter(self.root)
         raise ValidationError(f"unsupported_adapter:{capsule.adapter}")
 
+    def _with_role_context(self, capsule: MaintenanceCapsule, data: Dict[str, Any]) -> Dict[str, Any]:
+        if capsule.role_context:
+            data["role_context"] = dict(capsule.role_context)
+        return data
+
     def validate_authority(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> str:
         capsule_hash = capsule.hash()
         required_scopes = capsule.required_scopes()
@@ -30,7 +35,7 @@ class StegEntityRuntime:
 
     def validate(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
-        return {
+        return self._with_role_context(capsule, {
             "status": "ok",
             "capsule_id": capsule.capsule_id,
             "capsule_hash": capsule_hash,
@@ -38,13 +43,13 @@ class StegEntityRuntime:
             "target": capsule.target,
             "operation_count": len(capsule.operations),
             "required_scopes": capsule.required_scopes(),
-        }
+        })
 
     def dry_run(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
         adapter = self._adapter(capsule)
         result = adapter.dry_run(capsule.operations)
-        outcome = {"status": "ok", "mode": "dry_run", "created_at": now_text(), "capsule_id": capsule.capsule_id, "capsule_hash": capsule_hash, "result": result}
+        outcome = self._with_role_context(capsule, {"status": "ok", "mode": "dry_run", "created_at": now_text(), "capsule_id": capsule.capsule_id, "capsule_hash": capsule_hash, "result": result})
         self._write_outcome(capsule.capsule_id, "dry_run", outcome)
         return outcome
 
@@ -61,10 +66,11 @@ class StegEntityRuntime:
             adapter=capsule.adapter,
             target=capsule.target,
             result=result,
+            role_context=capsule.role_context,
         )
         receipt_path = self.receipts_dir / f"{capsule.capsule_id}.execution_receipt.json"
         write_json(receipt_path, receipt_body)
-        outcome = {
+        outcome = self._with_role_context(capsule, {
             "status": "ok",
             "mode": "apply",
             "created_at": now_text(),
@@ -73,7 +79,7 @@ class StegEntityRuntime:
             "receipt_path": str(receipt_path),
             "receipt_hash": receipt_body["receipt_hash"],
             "result": result,
-        }
+        })
         self._write_outcome(capsule.capsule_id, "apply", outcome)
         return outcome
 
