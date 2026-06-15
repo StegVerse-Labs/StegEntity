@@ -1,0 +1,40 @@
+{
+  "schema": "stegverse.ingestion.cross_repo_task.v1",
+  "task_id": "2026-06-14-site-exchange-pages",
+  "created_at": "2026-06-14",
+  "source_org": "StegVerse-Labs",
+  "source_repo": "StegEntity",
+  "target_org": "StegVerse-Labs",
+  "target_repo": "Site",
+  "task": "add public exchange export and import-check pages",
+  "intent": "public governed artifact import-export demonstration",
+  "proposed_files": [
+    "governance/exchange-export.html",
+    "governance/exchange-check.html",
+    "data/governance/sample-exchange.json"
+  ],
+  "governance_tightness": {
+    "schema": "stegverse.governance.tightness_profile.v1",
+    "label": "balanced",
+    "scale": 55,
+    "require_receipt": true,
+    "require_replay": true,
+    "require_human_review": false,
+    "allow_cross_repo_write": true,
+    "allow_cross_org_write": false,
+    "default_route": "receipt_and_replay_required"
+  },
+  "admissibility_bundle_or_exchange": null,
+  "monitoring_links": {
+    "repo_status": "master-records/monitoring/repo-status.json",
+    "schema_checkpoint": "master-records/monitoring/schema-adoption/initial-checkpoint.json",
+    "progress": "master-records/monitoring/progress.json"
+  },
+  "status": "incoming",
+  "required_follow_up": [
+    "create Site export page",
+    "create Site import-check page",
+    "record implementation event",
+    "update progress indicators"
+  ]
+}
