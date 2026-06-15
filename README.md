@@ -60,6 +60,7 @@ It includes:
 - Apply-time blocking for invalid completion invariant type.
 - Visible `role_enforcement` runtime outputs.
 - Execution receipts that preserve apply-time `role_enforcement`.
+- Local repo activation check command.
 - A reproducible role-context demo fixture builder.
 - A generated role-context fixture verifier.
 - A role-context demo verification script.
@@ -104,6 +105,12 @@ Run the role-context demo checks:
 python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
 python tools/check_role_context_demo.py
+```
+
+Run the local activation check:
+
+```bash
+python tools/check_repo_activation.py
 ```
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
@@ -232,6 +239,7 @@ python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
+python tools/check_repo_activation.py
 ```
 
 Automated verification is declared in:
