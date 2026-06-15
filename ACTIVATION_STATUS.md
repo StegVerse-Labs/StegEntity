@@ -49,6 +49,7 @@ This status does not claim:
 
 - `README.md`
 - `docs/STEGENTITY_ACTIVATION.md`
+- `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`
 - `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`
 - `docs/STEGENTITY_VERIFICATION.md`
 
