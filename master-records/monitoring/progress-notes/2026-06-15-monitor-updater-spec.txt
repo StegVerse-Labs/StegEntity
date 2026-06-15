@@ -1,0 +1,14 @@
+Progress note
+
+Generated: 2026-06-15
+
+Added:
+- master-records/tools/monitor-updater-spec.txt
+
+Effect:
+- Master-Records now has the smallest defined behavior for a future monitor updater.
+- The updater should keep task state records, monitoring events, and progress indicators aligned.
+
+Current estimated progress:
+- Org complete: 30 percent
+- Repo complete: 63 percent
