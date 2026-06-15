@@ -69,3 +69,18 @@ def apply_role_context_blocks(role_context: Dict[str, Any]) -> List[str]:
         blocks.append("role_context_completion_invariant_required_must_be_bool")
 
     return blocks
+
+
+def role_enforcement_result(role_context: Dict[str, Any], mode: str) -> Dict[str, Any]:
+    """Return visible role enforcement posture for runtime outputs."""
+    warnings = role_context_warnings(role_context)
+    blocks = apply_role_context_blocks(role_context) if mode == "apply" else []
+    decision = "BLOCK" if blocks else ("WARN" if warnings else "ALLOW")
+    return {
+        "stage": "required-role-context-for-apply" if mode == "apply" else "warning-only",
+        "mode": mode,
+        "role_transition": role_context.get("role_transition") if role_context else None,
+        "decision": decision,
+        "warnings": warnings,
+        "blocks": blocks,
+    }
