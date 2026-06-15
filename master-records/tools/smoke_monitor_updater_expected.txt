@@ -1,0 +1,18 @@
+Monitor updater smoke expected output
+
+Generated: 2026-06-15
+
+Expected created note path pattern:
+master-records/monitoring/progress-notes/YYYY-MM-DD-2026-06-14-site-exchange-pages-waiting.txt
+
+Expected note fields:
+- Progress note
+- Generated date
+- Task: 2026-06-14-site-exchange-pages
+- State: waiting
+- Target repo: StegVerse-Labs/Site
+- Org complete: 30 percent
+- Repo complete: 64 percent
+
+Expected second run behavior:
+- exits without overwriting the existing note
