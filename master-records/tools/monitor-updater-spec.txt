@@ -1,0 +1,40 @@
+Monitor updater specification
+
+Generated: 2026-06-15
+
+Purpose:
+Define the smallest updater behavior needed for Master-Records to keep task lifecycle and progress records current.
+
+Inputs:
+- task id
+- source repo
+- target repo
+- current state
+- next state
+- tightness label and scale
+- changed files
+- related issue or note
+
+Supported states:
+- incoming
+- assigned
+- processing
+- waiting
+- completed
+- review
+
+Required updates:
+1. Add or update the task state record.
+2. Add or update a monitoring event.
+3. Update progress percentages when a milestone changes.
+4. Preserve links to source task, assigned worker, retry package, issue handoff, and apply note.
+5. Do not delete prior state records.
+
+Current first tracked task:
+- 2026-06-14-site-exchange-pages
+
+Current first worker:
+- repo-worker-site
+
+Current next state:
+- waiting until Site page files are applied
