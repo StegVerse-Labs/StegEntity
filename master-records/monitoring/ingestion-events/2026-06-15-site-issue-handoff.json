@@ -1,0 +1,30 @@
+{
+  "schema": "stegverse.master_records.monitoring.ingestion_event.v1",
+  "event_id": "2026-06-15-site-issue-handoff",
+  "observed_at": "2026-06-15",
+  "source_org": "StegVerse-Labs",
+  "source_repo": "StegEntity",
+  "target_org": "StegVerse-Labs",
+  "target_repo": "Site",
+  "task": "implement governed exchange export and check pages",
+  "intent": "tracked Site-side application after direct page write block",
+  "proposed_files": [
+    "governance/exchange-export.html",
+    "governance/exchange-check.html"
+  ],
+  "governance_tightness": {
+    "label": "balanced",
+    "scale": 55
+  },
+  "status": "handoff_opened",
+  "decision": "defer_to_site_issue",
+  "site_issue": "https://github.com/StegVerse-Labs/Site/issues/1",
+  "required_follow_up": [
+    "apply pages in Site",
+    "verify pages on GitHub Pages",
+    "record completion event"
+  ],
+  "admissibility_reference": null,
+  "exchange_reference": null,
+  "bundle_reference": null
+}
