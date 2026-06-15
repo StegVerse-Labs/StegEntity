@@ -33,7 +33,8 @@ Current behavior:
 - apply blocks incomplete role context;
 - apply blocks unknown `role_transition` values;
 - apply blocks non-boolean `completion_invariant_required` values;
-- validate, dry-run, and apply outputs include a visible `role_enforcement` result.
+- validate, dry-run, and apply outputs include a visible `role_enforcement` result;
+- successful execution receipts include the apply-time `role_enforcement` result.
 
 ## Enforcement Stages
 
@@ -93,7 +94,7 @@ Hard enforcement should be introduced in this order:
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
 4. Require full `role_context` for apply. **Implemented.**
 5. Echo role enforcement result in outcome reports. **Implemented for successful outputs.**
-6. Include role enforcement result in execution receipts.
+6. Include role enforcement result in execution receipts. **Implemented for successful apply receipts.**
 7. Extend enforcement to dry-run and validate only after apply behavior is stable.
 
 ## Apply-Time Required Fields
@@ -111,7 +112,7 @@ completion_invariant_required
 
 ## Enforcement Result Shape
 
-Runtime outputs include:
+Runtime outputs and successful execution receipts include:
 
 ```json
 {
