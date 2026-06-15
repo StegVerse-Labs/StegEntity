@@ -1,0 +1,30 @@
+Next eligible task queue
+
+Generated: 2026-06-15
+
+Anchor task:
+2026-06-14-site-exchange-pages
+
+Current state:
+waiting
+
+Eligible now:
+- keep Site issue open
+- keep waiting record active
+- prepare completion record template
+- prepare receipt reference template
+- prepare artifact history template
+
+Eligible after Site pages exist:
+- create completed task record
+- update receipt reference index
+- update artifact history index
+- run monitor updater smoke command
+- update activation status
+- update Site issue
+
+Not eligible yet:
+- completed task record for Site exchange pages
+
+Reason:
+The two pending Site page files have not been confirmed in the target repo.
