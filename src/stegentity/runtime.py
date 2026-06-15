@@ -68,6 +68,7 @@ class StegEntityRuntime:
         self._enforce_apply_role_context(capsule)
         adapter = self._adapter(capsule)
         result = adapter.apply(capsule.operations, capsule.capsule_id)
+        role_enforcement = role_enforcement_result(capsule.role_context, "apply")
         receipt_body = make_receipt(
             receipt_type="execution",
             capsule_hash=capsule_hash,
@@ -78,6 +79,7 @@ class StegEntityRuntime:
             target=capsule.target,
             result=result,
             role_context=capsule.role_context,
+            role_enforcement=role_enforcement,
         )
         receipt_path = self.receipts_dir / f"{capsule.capsule_id}.execution_receipt.json"
         write_json(receipt_path, receipt_body)
