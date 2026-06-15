@@ -53,6 +53,7 @@ It includes:
 - Role transition enforcement policy.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
+- Apply-time required role context enforcement.
 - Apply-time blocking for unknown role transitions.
 - Apply-time blocking for invalid completion invariant type.
 - A reproducible role-context demo fixture builder.
@@ -69,7 +70,7 @@ This repo does not issue TV/TVC tokens. It consumes TVC-style authority tokens s
 
 This repo does not mint StegID receipts. It consumes StegID-style verified receipt JSON so that the runtime can be integrated with StegID receipt minting and verification.
 
-This repo does not yet fully enforce role transitions. It preserves role context, emits warning-only findings for validate and dry-run, and blocks unknown role transitions plus invalid completion invariant types at apply time.
+This repo does not yet fully enforce role transitions across all runtime modes. It preserves role context, emits warning-only findings for validate and dry-run, and requires complete role context at apply time.
 
 ## Quick Start
 
