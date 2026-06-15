@@ -1,0 +1,35 @@
+Master-Records activation checklist
+
+Generated: 2026-06-15
+
+Activation target:
+- Make StegEntity usable as the Master-Records monitoring and scheduling node for ecosystem-wide implementation.
+
+Foundation complete:
+- standards records exist
+- monitoring namespace exists
+- task lifecycle folders are in use
+- repo worker registry exists
+- Site task has incoming, assigned, processing, and waiting records
+- monitor updater spec exists
+- minimal monitor updater exists
+- smoke command and expected output exist
+
+Operational readiness remaining:
+- apply Site exchange export page
+- apply Site exchange check page
+- create machine-readable routing rules when connector allows
+- run monitor updater smoke command in repo checkout
+- populate receipt reference index
+- populate artifact history index
+- populate completed task record after Site pages land
+
+Repo activation meaning:
+- Master-Records can accept a task packet
+- assign it to a repo worker
+- record waiting or completed state
+- update progress notes append-only
+- preserve enough references to reconstruct the task path
+
+Current activation estimate:
+- 66 percent
