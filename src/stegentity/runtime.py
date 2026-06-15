@@ -8,6 +8,7 @@ from .capsule import MaintenanceCapsule
 from .errors import ValidationError
 from .receipt import VerifiedReceipt
 from .receipts import make_receipt, write_json
+from .role_context import role_context_warnings
 from .timeutil import now_text
 
 class StegEntityRuntime:
@@ -24,6 +25,9 @@ class StegEntityRuntime:
     def _with_role_context(self, capsule: MaintenanceCapsule, data: Dict[str, Any]) -> Dict[str, Any]:
         if capsule.role_context:
             data["role_context"] = dict(capsule.role_context)
+        warnings = role_context_warnings(capsule.role_context)
+        if warnings:
+            data["role_context_warnings"] = warnings
         return data
 
     def validate_authority(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> str:
