@@ -31,9 +31,21 @@ class StegEntityRuntime:
         data["role_enforcement"] = role_enforcement_result(capsule.role_context, mode)
         return data
 
-    def _enforce_apply_role_context(self, capsule: MaintenanceCapsule) -> None:
+    def _enforce_apply_role_context(self, capsule: MaintenanceCapsule, capsule_hash: str) -> None:
         blocks = apply_role_context_blocks(capsule.role_context)
         if blocks:
+            outcome = self._with_role_context(capsule, {
+                "status": "blocked",
+                "mode": "apply",
+                "created_at": now_text(),
+                "capsule_id": capsule.capsule_id,
+                "capsule_hash": capsule_hash,
+                "reason": "role_context_apply_block",
+                "blocks": blocks,
+                "mutation_attempted": False,
+                "execution_receipt_emitted": False,
+            }, "apply")
+            self._write_outcome(capsule.capsule_id, "apply.blocked", outcome)
             raise ValidationError(f"role_context_apply_block:{blocks}")
 
     def validate_authority(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> str:
@@ -65,7 +77,7 @@ class StegEntityRuntime:
 
     def apply(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> Dict[str, Any]:
         capsule_hash = self.validate_authority(capsule, receipt, token)
-        self._enforce_apply_role_context(capsule)
+        self._enforce_apply_role_context(capsule, capsule_hash)
         adapter = self._adapter(capsule)
         result = adapter.apply(capsule.operations, capsule.capsule_id)
         role_enforcement = role_enforcement_result(capsule.role_context, "apply")
