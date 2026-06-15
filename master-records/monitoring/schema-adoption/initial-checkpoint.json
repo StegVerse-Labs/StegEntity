@@ -1,0 +1,17 @@
+{
+  "schema": "stegverse.master_records.monitoring.schema_adoption_checkpoint.v1",
+  "generated": "2026-06-14",
+  "checkpoint_id": "initial-schema-adoption",
+  "source_repo": "StegVerse-org/StegVerse-SDK",
+  "schemas": [
+    "stegverse.governance.tightness_profile.v1",
+    "stegverse.admissibility.bundle.v1",
+    "stegverse.admissibility.gax_exchange.v1",
+    "stegverse.admissibility.replay_result.v1"
+  ],
+  "targets": [
+    "StegVerse-Labs/Site",
+    "StegVerse-Labs/StegEntity"
+  ],
+  "status": "initialized"
+}
