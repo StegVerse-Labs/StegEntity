@@ -50,6 +50,7 @@ It includes:
 - A complete demo capsule.
 - A complete local demo runner.
 - Role symmetry doctrine.
+- Role transition enforcement policy.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - A reproducible role-context demo fixture builder.
@@ -171,6 +172,8 @@ All roles must operate through StegID identity, TV/TVC scoped authority, mainten
 For symmetrical role constraints, see `docs/STEGENTITY_ROLE_SYMMETRY.md`.
 
 For role field schema notes, see `docs/STEGENTITY_ROLE_FIELD_SCHEMA.md`.
+
+For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`.
 
 ## Relationship to StegID
 
