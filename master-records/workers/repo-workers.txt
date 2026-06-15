@@ -1,0 +1,24 @@
+Repo worker registry
+
+Generated: 2026-06-15
+
+Worker: repo-worker-stegverse-sdk
+Repo: StegVerse-org/StegVerse-SDK
+Role: reference implementation
+Tasks: standards update, schema update, sdk helper update, test update
+Default tightness: balanced 55
+Availability: active
+
+Worker: repo-worker-site
+Repo: StegVerse-Labs/Site
+Role: public pages and demos
+Tasks: site page update, public demo update, sample data update
+Default tightness: balanced 55
+Availability: issue handoff required
+
+Worker: repo-worker-stegentity
+Repo: StegVerse-Labs/StegEntity
+Role: master records and monitoring
+Tasks: monitoring update, task packet update, routing update, worker registry update
+Default tightness: balanced 55
+Availability: active
