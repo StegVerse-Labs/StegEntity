@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~53%
+Repo completion: ~56%
 ```
 
 These are working estimates, not audited final metrics.
@@ -68,6 +68,8 @@ The StegEntity repo-level percentage should consider:
 - reproducible role-context fixture builder;
 - runtime validation coverage for role-context demo posture;
 - role-context demo check script;
+- local verification documentation;
+- automated GitHub Actions verification workflow;
 - role symmetry runtime enforcement;
 - multi-adapter support;
 - integration with live TV/TVC issuance;
@@ -115,6 +117,9 @@ StegEntity is currently past scaffold stage because it includes:
 - role context demo status note;
 - reproducible role-context fixture builder;
 - role-context demo check script;
+- local verification guide;
+- GitHub Actions verification workflow;
+- README verification entry point;
 - tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, and the role-context demo check script.
 
 StegEntity is not yet complete because it still needs:
