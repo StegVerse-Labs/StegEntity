@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~59%
+Repo completion: ~61%
 ```
 
 These are working estimates, not audited final metrics.
@@ -65,6 +65,7 @@ The StegEntity repo-level percentage should consider:
 - role context preservation in runtime outputs;
 - role context preservation in execution receipts;
 - warning-only role context validation;
+- apply-time blocking for unknown role transitions;
 - hash-bound role-context receipt and authority examples;
 - reproducible role-context fixture builder;
 - generated role-context fixture verifier;
@@ -116,6 +117,7 @@ StegEntity is currently past scaffold stage because it includes:
 - optional role context execution receipt preservation;
 - warning-only role context validation;
 - runtime output of role context warnings;
+- apply-time blocking for unknown role transitions;
 - hash-bound role-context receipt and authority examples;
 - role context demo status note;
 - reproducible role-context fixture builder;
@@ -124,11 +126,11 @@ StegEntity is currently past scaffold stage because it includes:
 - local verification guide;
 - GitHub Actions verification workflow that builds and verifies generated role-context fixtures;
 - README verification and policy entry points;
-- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, and the role-context demo check script.
+- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, role-context demo check script, and apply-only unknown role-transition blocking.
 
 StegEntity is not yet complete because it still needs:
 
-- hard runtime validation of role transitions;
+- broader hard runtime validation of role transitions;
 - validator warnings for full runtime paths beyond focused unit checks;
 - multi-adapter support beyond local filesystem;
 - live TV/TVC token issuance integration;
