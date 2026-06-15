@@ -55,6 +55,7 @@ class MaintenanceCapsule:
     consequences: List[str]
     rollback_plan: List[str]
     verification: Dict[str, Any]
+    role_context: Dict[str, Any]
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "MaintenanceCapsule":
@@ -80,6 +81,9 @@ class MaintenanceCapsule:
         for field in ("dependencies", "consequences", "rollback_plan"):
             if not isinstance(data[field], list) or not all(isinstance(x, str) for x in data[field]):
                 raise ValidationError(f"capsule_{field}_must_be_string_list")
+        role_context = data.get("role_context", {})
+        if not isinstance(role_context, dict):
+            raise ValidationError("capsule_role_context_must_be_object")
         return cls(
             raw=dict(data),
             capsule_id=str(data["capsule_id"]),
@@ -94,6 +98,7 @@ class MaintenanceCapsule:
             consequences=list(data["consequences"]),
             rollback_plan=list(data["rollback_plan"]),
             verification=dict(data["verification"]),
+            role_context=dict(role_context),
         )
 
     def hash(self) -> str:
