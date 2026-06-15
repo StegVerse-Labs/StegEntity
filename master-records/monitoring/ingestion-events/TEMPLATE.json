@@ -1,0 +1,19 @@
+{
+  "schema": "stegverse.master_records.monitoring.ingestion_event.v1",
+  "event_id": "ingestion-event-template",
+  "observed_at": null,
+  "source_org": null,
+  "source_repo": null,
+  "target_org": null,
+  "target_repo": null,
+  "task": null,
+  "intent": null,
+  "proposed_files": [],
+  "governance_tightness": null,
+  "status": "template",
+  "decision": null,
+  "required_follow_up": [],
+  "admissibility_reference": null,
+  "exchange_reference": null,
+  "bundle_reference": null
+}
