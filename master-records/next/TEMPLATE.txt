@@ -1,0 +1,22 @@
+Next eligible task queue template
+
+Generated:
+
+Anchor task:
+
+Current state:
+
+Eligible now:
+-
+
+Eligible after condition:
+-
+
+Not eligible yet:
+-
+
+Condition required:
+
+Reason:
+
+Next queue owner:
