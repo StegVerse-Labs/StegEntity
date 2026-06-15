@@ -3,16 +3,19 @@
   "generated": "2026-06-14",
   "org_scope": "StegVerse-Labs ecosystem implementation",
   "repo_scope": "StegVerse-Labs/StegEntity monitoring foundation",
-  "org_complete_percent": 24,
-  "repo_complete_percent": 52,
+  "org_complete_percent": 26,
+  "repo_complete_percent": 56,
   "basis": {
     "org_done": [
       "reference SDK standards exist",
       "master-records standards initialized",
-      "monitoring namespace initialized"
+      "monitoring namespace initialized",
+      "Site exchange task packet created",
+      "Site sample exchange data created"
     ],
     "org_remaining": [
-      "Site exchange export/import",
+      "Site exchange export page",
+      "Site exchange import-check page",
       "cross-repo ingestion task packet runner",
       "repo-by-repo adoption tracking",
       "node compatibility reporting"
@@ -22,7 +25,8 @@
       "monitoring status files",
       "monitoring templates",
       "initial schema checkpoint",
-      "initial monitoring event"
+      "initial monitoring event",
+      "Site retry package"
     ],
     "repo_remaining": [
       "automated monitor updater",
