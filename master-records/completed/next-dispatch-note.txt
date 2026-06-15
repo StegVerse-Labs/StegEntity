@@ -1,0 +1,17 @@
+Completed task dispatcher note
+
+Generated: 2026-06-15
+
+When a task enters completed state, Master-Records should identify the next eligible task.
+
+For task:
+2026-06-14-site-exchange-pages
+
+Next eligible tasks after completion:
+- add receipt reference entries
+- add artifact history entries
+- run monitor updater smoke command
+- update activation status
+- close or update Site issue
+
+Do not create the completed record until the target files exist in the target repo.
