@@ -6,6 +6,13 @@ Assigned worker: repo-worker-site
 Assignment date: 2026-06-15
 Tightness: balanced 55
 
+Route:
+- incoming task packet
+- assigned to repo-worker-site
+- processing retry package created
+- Site issue handoff opened
+- pending page application
+
 Current state:
 - sample data file exists in Site
 - Site issue is open
