@@ -28,3 +28,6 @@ jobs:
 
       - name: Check role context demo
         run: python tools/check_role_context_demo.py
+
+      - name: Check repo activation
+        run: python tools/check_repo_activation.py
