@@ -53,6 +53,7 @@ It includes:
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - A reproducible role-context demo fixture builder.
+- A generated role-context fixture verifier.
 - A role-context demo verification script.
 - Built-in unit tests using Python standard library only.
 - A GitHub Actions verification workflow.
@@ -89,9 +90,11 @@ Run tests:
 python -m unittest discover tests
 ```
 
-Run the role-context demo check:
+Run the role-context demo checks:
 
 ```bash
+python tools/build_role_context_demo.py
+python tools/verify_generated_role_context_demo.py
 python tools/check_role_context_demo.py
 ```
 
@@ -215,6 +218,8 @@ For v0, StegEntity validates token structure, time bounds, adapter, target, requ
 Local verification:
 
 ```bash
+python tools/build_role_context_demo.py
+python tools/verify_generated_role_context_demo.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 ```
