@@ -49,7 +49,13 @@ It includes:
 - Outcome report generation.
 - A complete demo capsule.
 - A complete local demo runner.
+- Role symmetry doctrine.
+- Optional role context parsing and preservation.
+- Warning-only role context validation.
+- A reproducible role-context demo fixture builder.
+- A role-context demo verification script.
 - Built-in unit tests using Python standard library only.
+- A GitHub Actions verification workflow.
 
 No external Python packages are required.
 
@@ -59,7 +65,7 @@ This repo does not issue TV/TVC tokens. It consumes TVC-style authority tokens s
 
 This repo does not mint StegID receipts. It consumes StegID-style verified receipt JSON so that the runtime can be integrated with StegID receipt minting and verification.
 
-This repo does not depend on GitHub Actions.
+This repo does not yet hard-enforce role transitions. It preserves role context and emits warning-only findings first.
 
 ## Quick Start
 
@@ -82,6 +88,14 @@ Run tests:
 ```bash
 python -m unittest discover tests
 ```
+
+Run the role-context demo check:
+
+```bash
+python tools/check_role_context_demo.py
+```
+
+For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
 
 ## CLI
 
@@ -153,6 +167,8 @@ All roles must operate through StegID identity, TV/TVC scoped authority, mainten
 
 For symmetrical role constraints, see `docs/STEGENTITY_ROLE_SYMMETRY.md`.
 
+For role field schema notes, see `docs/STEGENTITY_ROLE_FIELD_SCHEMA.md`.
+
 ## Relationship to StegID
 
 StegID is the identity and receipt authority layer.
@@ -193,6 +209,21 @@ receipt_hash
 ```
 
 For v0, StegEntity validates token structure, time bounds, adapter, target, required scopes, and capsule hash. Token issuance and revocation remain owned by TV/TVC.
+
+## Verification
+
+Local verification:
+
+```bash
+python -m unittest discover tests
+python tools/check_role_context_demo.py
+```
+
+Automated verification is declared in:
+
+```text
+.github/workflows/stegentity-verify.yml
+```
 
 ## Critical Invariant
 
