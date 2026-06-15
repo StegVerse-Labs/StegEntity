@@ -32,7 +32,8 @@ Current behavior:
 - apply blocks missing role context;
 - apply blocks incomplete role context;
 - apply blocks unknown `role_transition` values;
-- apply blocks non-boolean `completion_invariant_required` values.
+- apply blocks non-boolean `completion_invariant_required` values;
+- validate, dry-run, and apply outputs include a visible `role_enforcement` result.
 
 ## Enforcement Stages
 
@@ -91,7 +92,7 @@ Hard enforcement should be introduced in this order:
 2. Require `completion_invariant_required` to be boolean for apply. **Implemented.**
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
 4. Require full `role_context` for apply. **Implemented.**
-5. Echo role enforcement result in outcome reports.
+5. Echo role enforcement result in outcome reports. **Implemented for successful outputs.**
 6. Include role enforcement result in execution receipts.
 7. Extend enforcement to dry-run and validate only after apply behavior is stable.
 
@@ -110,12 +111,13 @@ completion_invariant_required
 
 ## Enforcement Result Shape
 
-Future runtime outputs should include:
+Runtime outputs include:
 
 ```json
 {
   "role_enforcement": {
-    "stage": "warning-only|soft-block|required|full",
+    "stage": "warning-only|required-role-context-for-apply",
+    "mode": "validate|dry_run|apply",
     "role_transition": "RT-004",
     "decision": "ALLOW|WARN|BLOCK",
     "warnings": [],
