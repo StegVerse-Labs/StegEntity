@@ -1,0 +1,15 @@
+{
+  "receipt_id": "demo-role-context-receipt-0001",
+  "actor_class": "ai",
+  "scopes": [
+    "local_fs:write"
+  ],
+  "issued_at": "2026-06-15T17:00:01Z",
+  "expires_at": "2027-01-01T00:00:00Z",
+  "assurance_level": 2,
+  "signals": [],
+  "issuer": "stegid",
+  "kid": "demo-key",
+  "payload_hash": "sha256:ef94b71f15b0cbec9d304142ee3635f578a95c274f2da384a40b9d9b88bdd188",
+  "sig": "demo-signature-owned-by-stegid-in-production"
+}
