@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~49%
+Repo completion: ~51%
 ```
 
 These are working estimates, not audited final metrics.
@@ -65,6 +65,7 @@ The StegEntity repo-level percentage should consider:
 - role context preservation in execution receipts;
 - warning-only role context validation;
 - hash-bound role-context receipt and authority examples;
+- reproducible role-context fixture builder;
 - role symmetry runtime enforcement;
 - multi-adapter support;
 - integration with live TV/TVC issuance;
@@ -110,11 +111,12 @@ StegEntity is currently past scaffold stage because it includes:
 - runtime output of role context warnings;
 - hash-bound role-context receipt and authority examples;
 - role context demo status note;
-- tests for role context parsing, execution receipt inclusion, and role context warnings.
+- reproducible role-context fixture builder;
+- tests for role context parsing, execution receipt inclusion, role context warnings, and role-context demo builder hash binding.
 
 StegEntity is not yet complete because it still needs:
 
-- executable role-context capsule JSON;
+- generated role-context capsule file committed or produced during CI;
 - hard runtime validation of role transitions;
 - validator warnings for full runtime paths beyond focused unit checks;
 - multi-adapter support beyond local filesystem;
