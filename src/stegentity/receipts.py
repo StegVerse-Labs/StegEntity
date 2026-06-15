@@ -5,7 +5,7 @@ from typing import Any, Dict
 from .hashutil import sha256_json
 from .timeutil import now_text
 
-def make_receipt(*, receipt_type: str, capsule_hash: str, capsule_id: str, actor_receipt_id: str, authority_token_id: str, adapter: str, target: str, result: Dict[str, Any]) -> Dict[str, Any]:
+def make_receipt(*, receipt_type: str, capsule_hash: str, capsule_id: str, actor_receipt_id: str, authority_token_id: str, adapter: str, target: str, result: Dict[str, Any], role_context: Dict[str, Any] | None = None) -> Dict[str, Any]:
     body = {
         "schema": {"name": "stegverse.stegentity.execution_receipt", "version": "0.1.0"},
         "receipt_type": receipt_type,
@@ -18,6 +18,8 @@ def make_receipt(*, receipt_type: str, capsule_hash: str, capsule_id: str, actor
         "target": target,
         "result": result,
     }
+    if role_context:
+        body["role_context"] = dict(role_context)
     body["receipt_hash"] = sha256_json(body)
     return body
 
