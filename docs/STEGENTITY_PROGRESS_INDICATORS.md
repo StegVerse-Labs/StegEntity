@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~38%
+Repo completion: ~46%
 ```
 
 These are working estimates, not audited final metrics.
@@ -59,6 +59,10 @@ The StegEntity repo-level percentage should consider:
 - rollback material capture;
 - unit tests;
 - role symmetry doctrine;
+- role symmetry field schema notes;
+- role context preservation in capsule parsing;
+- role context preservation in runtime outputs;
+- role context preservation in execution receipts;
 - role symmetry runtime enforcement;
 - multi-adapter support;
 - integration with live TV/TVC issuance;
@@ -94,12 +98,18 @@ StegEntity is currently past scaffold stage because it includes:
 - execution receipts;
 - outcome reports;
 - unit tests;
-- role symmetry doctrine.
+- role symmetry doctrine;
+- role field schema notes;
+- non-executable role context example fragment;
+- optional role context parsing;
+- optional role context runtime output preservation;
+- optional role context execution receipt preservation;
+- tests for role context parsing and execution receipt inclusion.
 
 StegEntity is not yet complete because it still needs:
 
-- explicit role fields in capsule / receipt / outcome schemas;
 - runtime validation of role transitions;
+- validator warnings before hard enforcement;
 - multi-adapter support beyond local filesystem;
 - live TV/TVC token issuance integration;
 - live StegID receipt minting integration;
