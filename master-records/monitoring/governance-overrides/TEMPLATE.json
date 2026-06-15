@@ -1,0 +1,17 @@
+{
+  "schema": "stegverse.master_records.monitoring.governance_override.v1",
+  "override_id": "governance-override-template",
+  "created_at": null,
+  "scope": {
+    "org": null,
+    "repo": null,
+    "node": null
+  },
+  "previous_tightness": null,
+  "new_tightness": null,
+  "reason": null,
+  "authority_source": null,
+  "expires_at": null,
+  "receipt_reference": null,
+  "status": "template"
+}
