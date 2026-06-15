@@ -19,19 +19,20 @@ In StegEntity, a role transition is admissible only when the transition is decla
 Current stage:
 
 ```text
-Stage 3 partial soft block
+Stage 4 required role context for apply
 ```
 
 Current behavior:
 
-- `role_context` is optional;
-- missing role context emits warnings;
-- incomplete role context emits warnings;
+- `role_context` is optional for validate and dry-run;
+- missing role context emits warnings during validate and dry-run;
+- incomplete role context emits warnings during validate and dry-run;
 - unknown role transitions emit warnings during validate and dry-run;
 - invalid field types emit warnings during validate and dry-run;
+- apply blocks missing role context;
+- apply blocks incomplete role context;
 - apply blocks unknown `role_transition` values;
-- apply blocks non-boolean `completion_invariant_required` values;
-- validate and dry-run remain warning-only for these findings.
+- apply blocks non-boolean `completion_invariant_required` values.
 
 ## Enforcement Stages
 
@@ -44,7 +45,7 @@ Current behavior:
 | 4 | Required role context | Require complete role context for apply |
 | 5 | Full role enforcement | Enforce transition table across validate, dry-run, apply, receipts, and outcomes |
 
-StegEntity is currently at Stage 3 partial soft block.
+StegEntity is currently at Stage 4 for apply and Stage 2 for validate/dry-run.
 
 ---
 
@@ -70,6 +71,7 @@ These conversions should never be silently allowed.
 |---|---|---|---|---|
 | RB-000 | unknown_role_transition_on_apply | unknown role transition cannot authorize mutation | implemented for apply | block |
 | RB-000B | invalid_completion_invariant_type_on_apply | completion invariant posture must be explicit boolean when declared | implemented for apply | block |
+| RB-000C | missing_or_incomplete_role_context_on_apply | apply requires declared role posture | implemented for apply | block |
 | RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | planned | block |
 | RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | planned | block |
 | RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | planned | block |
@@ -86,16 +88,16 @@ These conversions should never be silently allowed.
 Hard enforcement should be introduced in this order:
 
 1. Block unknown `role_transition` values for apply only. **Implemented.**
-2. Require `completion_invariant_required` to be boolean for apply. **Implemented when field is present.**
+2. Require `completion_invariant_required` to be boolean for apply. **Implemented.**
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
-4. Require full `role_context` for apply.
+4. Require full `role_context` for apply. **Implemented.**
 5. Echo role enforcement result in outcome reports.
 6. Include role enforcement result in execution receipts.
 7. Extend enforcement to dry-run and validate only after apply behavior is stable.
 
 ## Apply-Time Required Fields
 
-Future apply-time enforcement should require:
+Apply-time enforcement requires:
 
 ```text
 actor_role
