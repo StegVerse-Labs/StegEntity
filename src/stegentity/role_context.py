@@ -22,8 +22,9 @@ KNOWN_ROLE_TRANSITIONS = {
 def role_context_warnings(role_context: Dict[str, Any]) -> List[str]:
     """Return warning-only role context findings.
 
-    These warnings intentionally do not block execution. They expose role posture
-    gaps before hard role-transition enforcement is introduced.
+    These warnings intentionally do not block validation or dry-run. They expose
+    role posture gaps before broader hard role-transition enforcement is
+    introduced.
     """
     if not role_context:
         return ["role_context_missing"]
@@ -42,3 +43,16 @@ def role_context_warnings(role_context: Dict[str, Any]) -> List[str]:
         warnings.append("role_context_completion_invariant_required_must_be_bool")
 
     return warnings
+
+
+def apply_role_context_blocks(role_context: Dict[str, Any]) -> List[str]:
+    """Return apply-time role context blocks.
+
+    This is the first narrow hard-enforcement slice. It blocks only unknown
+    declared role transitions during apply. Validation and dry-run remain
+    warning-only.
+    """
+    role_transition = role_context.get("role_transition")
+    if role_transition is not None and str(role_transition) not in KNOWN_ROLE_TRANSITIONS:
+        return [f"role_context_unknown_role_transition:{role_transition}"]
+    return []
