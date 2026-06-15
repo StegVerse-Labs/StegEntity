@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~64%
+Repo completion: ~66%
 ```
 
 These are working estimates, not audited final metrics.
@@ -65,6 +65,7 @@ The StegEntity repo-level percentage should consider:
 - role context preservation in runtime outputs;
 - role context preservation in execution receipts;
 - warning-only role context validation;
+- visible role enforcement runtime outputs;
 - apply-time required role context enforcement;
 - apply-time blocking for unknown role transitions;
 - apply-time blocking for invalid completion invariant type;
@@ -119,6 +120,7 @@ StegEntity is currently past scaffold stage because it includes:
 - optional role context execution receipt preservation;
 - warning-only role context validation;
 - runtime output of role context warnings;
+- visible role enforcement runtime outputs;
 - apply-time required role context enforcement;
 - apply-time blocking for unknown role transitions;
 - apply-time blocking for invalid completion invariant type;
@@ -130,7 +132,7 @@ StegEntity is currently past scaffold stage because it includes:
 - local verification guide;
 - GitHub Actions verification workflow that builds and verifies generated role-context fixtures;
 - README verification and policy entry points;
-- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, role-context demo check script, apply-only unknown role-transition blocking, apply-only completion invariant type blocking, and apply-only required role-context enforcement.
+- tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, role-context demo check script, apply-only unknown role-transition blocking, apply-only completion invariant type blocking, apply-only required role-context enforcement, and role enforcement output posture.
 
 StegEntity is not yet complete because it still needs:
 
