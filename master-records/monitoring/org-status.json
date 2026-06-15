@@ -1,0 +1,22 @@
+{
+  "schema": "stegverse.master_records.monitoring.org_status.v1",
+  "generated": "2026-06-14",
+  "orgs": [
+    {
+      "org": "StegVerse-org",
+      "role": "standards_and_sdk_source",
+      "gax_aware": true,
+      "gab_aware": true,
+      "governance_tightness_aware": true,
+      "notes": "StegVerse-SDK currently hosts the reference implementation."
+    },
+    {
+      "org": "StegVerse-Labs",
+      "role": "site_and_node_implementation_target",
+      "gax_aware": "partial",
+      "gab_aware": "partial",
+      "governance_tightness_aware": "partial",
+      "notes": "Master-Records monitoring has been initialized in StegEntity."
+    }
+  ]
+}
