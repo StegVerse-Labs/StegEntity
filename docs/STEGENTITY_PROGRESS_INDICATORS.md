@@ -25,7 +25,7 @@ As of this document:
 
 ```text
 Org completion: ~6%
-Repo completion: ~58%
+Repo completion: ~59%
 ```
 
 These are working estimates, not audited final metrics.
@@ -60,6 +60,7 @@ The StegEntity repo-level percentage should consider:
 - unit tests;
 - role symmetry doctrine;
 - role symmetry field schema notes;
+- role transition enforcement policy table;
 - role context preservation in capsule parsing;
 - role context preservation in runtime outputs;
 - role context preservation in execution receipts;
@@ -108,6 +109,7 @@ StegEntity is currently past scaffold stage because it includes:
 - unit tests;
 - role symmetry doctrine;
 - role field schema notes;
+- role transition enforcement policy table;
 - non-executable role context example fragment;
 - optional role context parsing;
 - optional role context runtime output preservation;
@@ -121,7 +123,7 @@ StegEntity is currently past scaffold stage because it includes:
 - role-context demo check script;
 - local verification guide;
 - GitHub Actions verification workflow that builds and verifies generated role-context fixtures;
-- README verification entry point;
+- README verification and policy entry points;
 - tests for role context parsing, execution receipt inclusion, role context warnings, role-context demo builder hash binding, runtime validation of clean role-context posture, and the role-context demo check script.
 
 StegEntity is not yet complete because it still needs:
