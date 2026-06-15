@@ -1,0 +1,19 @@
+Artifact history entry template
+
+Artifact id:
+
+Artifact type:
+
+Task id:
+
+Source repo:
+
+Target repo:
+
+Observed at:
+
+File path:
+
+Reference id:
+
+Lifecycle record:
