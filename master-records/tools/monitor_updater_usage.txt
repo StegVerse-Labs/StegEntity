@@ -1,0 +1,15 @@
+Monitor updater minimal usage
+
+Generated: 2026-06-15
+
+Command:
+python master-records/tools/monitor_updater_min.py --task-id 2026-06-14-site-exchange-pages --state waiting --target-repo StegVerse-Labs/Site --org-percent 30 --repo-percent 64
+
+Output:
+Creates a new progress note under:
+master-records/monitoring/progress-notes/
+
+Behavior:
+- creates one new note
+- does not edit older notes
+- exits if the target note already exists
