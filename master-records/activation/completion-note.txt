@@ -1,0 +1,19 @@
+Completion note
+
+Generated: 2026-06-15
+
+Task:
+2026-06-14-site-exchange-pages
+
+Complete when these files exist in StegVerse-Labs/Site:
+- governance/exchange-export.html
+- governance/exchange-check.html
+- data/governance/sample-exchange.json
+
+After completion:
+- add completed task record
+- update Site issue
+- update activation status
+
+Expected activation after completion:
+- 74 percent
