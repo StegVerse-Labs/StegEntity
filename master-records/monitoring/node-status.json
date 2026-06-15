@@ -1,0 +1,25 @@
+{
+  "schema": "stegverse.master_records.monitoring.node_status.v1",
+  "generated": "2026-06-14",
+  "nodes": [
+    {
+      "node_id": "SV-002",
+      "name": "Master-Records",
+      "role": "ecosystem_records_and_monitoring",
+      "status": "initialized",
+      "tracks": [
+        "standards",
+        "org_status",
+        "repo_status",
+        "node_status",
+        "ingestion_events",
+        "blocked_events",
+        "governance_overrides",
+        "schema_adoption",
+        "gax_history",
+        "gab_history",
+        "receipt_reference_index"
+      ]
+    }
+  ]
+}
