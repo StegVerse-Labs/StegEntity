@@ -1,0 +1,15 @@
+{
+  "schema": "stegverse.master_records.monitoring.artifact_history_index.v1",
+  "generated": "2026-06-14",
+  "entries": [],
+  "entry_shape": {
+    "artifact_id": null,
+    "artifact_type": null,
+    "source_org": null,
+    "source_repo": null,
+    "target_org": null,
+    "target_repo": null,
+    "observed_at": null,
+    "reference_id": null
+  }
+}
