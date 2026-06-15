@@ -1,0 +1,19 @@
+Receipt reference entry template
+
+Reference id:
+
+Task id:
+
+Source repo:
+
+Target repo:
+
+Decision:
+
+Allowed next state:
+
+Created at:
+
+Related lifecycle record:
+
+Related artifact record:
