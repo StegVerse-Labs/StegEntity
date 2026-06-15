@@ -151,6 +151,8 @@ A user-bound delegated intelligence.
 
 All roles must operate through StegID identity, TV/TVC scoped authority, maintenance capsules, adapters, receipts, and verification.
 
+For symmetrical role constraints, see `docs/STEGENTITY_ROLE_SYMMETRY.md`.
+
 ## Relationship to StegID
 
 StegID is the identity and receipt authority layer.
