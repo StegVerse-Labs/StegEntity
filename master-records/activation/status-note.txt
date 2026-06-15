@@ -1,0 +1,26 @@
+Activation status note
+
+Generated: 2026-06-15
+
+Activation percent:
+- 67 percent
+
+Working now:
+- task packet intake
+- assigned task records
+- processing retry records
+- waiting records
+- repo worker registry
+- Site issue tracking
+- append-only progress notes
+
+Still needed:
+- Site export page
+- Site check page
+- updater smoke run
+- receipt reference entries
+- artifact history entries
+- machine-readable routing table
+
+Next step:
+- complete the pending Site pages and record completion
