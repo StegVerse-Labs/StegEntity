@@ -3,8 +3,8 @@
   "generated": "2026-06-15",
   "org_scope": "StegVerse-Labs ecosystem implementation",
   "repo_scope": "StegVerse-Labs/StegEntity monitoring foundation",
-  "org_complete_percent": 28,
-  "repo_complete_percent": 60,
+  "org_complete_percent": 29,
+  "repo_complete_percent": 61,
   "basis": {
     "org_done": [
       "reference SDK standards exist",
@@ -14,7 +14,8 @@
       "Site sample exchange data created",
       "Site issue handoff indexed",
       "repo worker registry initialized",
-      "Site task assigned"
+      "Site task assigned",
+      "Site task waiting state recorded"
     ],
     "org_remaining": [
       "Site exchange export page",
@@ -32,7 +33,8 @@
       "Site retry package",
       "Site issue index",
       "repo worker registry",
-      "assigned task record"
+      "assigned task record",
+      "waiting task record"
     ],
     "repo_remaining": [
       "automated monitor updater",
