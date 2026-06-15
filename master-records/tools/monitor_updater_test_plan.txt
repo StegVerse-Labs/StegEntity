@@ -1,0 +1,16 @@
+Monitor updater test plan
+
+Generated: 2026-06-15
+
+Target:
+- master-records/tools/monitor_updater_min.py
+
+Smoke checks:
+1. Run the updater with a task id, state, target repo, and percentages.
+2. Confirm one progress note is created under master-records/monitoring/progress-notes/.
+3. Run the same command again.
+4. Confirm the updater exits instead of overwriting the existing note.
+5. Confirm the generated note contains task id, state, target repo, org percent, and repo percent.
+
+Current expected command:
+python master-records/tools/monitor_updater_min.py --task-id 2026-06-14-site-exchange-pages --state waiting --target-repo StegVerse-Labs/Site --org-percent 30 --repo-percent 64
