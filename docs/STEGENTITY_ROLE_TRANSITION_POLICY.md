@@ -28,9 +28,10 @@ Current behavior:
 - missing role context emits warnings;
 - incomplete role context emits warnings;
 - unknown role transitions emit warnings during validate and dry-run;
-- invalid field types emit warnings;
+- invalid field types emit warnings during validate and dry-run;
 - apply blocks unknown `role_transition` values;
-- validate and dry-run remain warning-only for unknown `role_transition` values.
+- apply blocks non-boolean `completion_invariant_required` values;
+- validate and dry-run remain warning-only for these findings.
 
 ## Enforcement Stages
 
@@ -68,6 +69,7 @@ These conversions should never be silently allowed.
 | Block ID | Conversion | Reason | Current Status | Future Severity |
 |---|---|---|---|---|
 | RB-000 | unknown_role_transition_on_apply | unknown role transition cannot authorize mutation | implemented for apply | block |
+| RB-000B | invalid_completion_invariant_type_on_apply | completion invariant posture must be explicit boolean when declared | implemented for apply | block |
 | RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | planned | block |
 | RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | planned | block |
 | RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | planned | block |
@@ -84,7 +86,7 @@ These conversions should never be silently allowed.
 Hard enforcement should be introduced in this order:
 
 1. Block unknown `role_transition` values for apply only. **Implemented.**
-2. Require `completion_invariant_required` to be boolean for apply.
+2. Require `completion_invariant_required` to be boolean for apply. **Implemented when field is present.**
 3. Block `proposal_not_execution` when the operation attempts apply without authority.
 4. Require full `role_context` for apply.
 5. Echo role enforcement result in outcome reports.
