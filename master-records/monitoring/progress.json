@@ -1,17 +1,18 @@
 {
   "schema": "stegverse.master_records.monitoring.progress.v1",
-  "generated": "2026-06-14",
+  "generated": "2026-06-15",
   "org_scope": "StegVerse-Labs ecosystem implementation",
   "repo_scope": "StegVerse-Labs/StegEntity monitoring foundation",
-  "org_complete_percent": 26,
-  "repo_complete_percent": 56,
+  "org_complete_percent": 27,
+  "repo_complete_percent": 58,
   "basis": {
     "org_done": [
       "reference SDK standards exist",
       "master-records standards initialized",
       "monitoring namespace initialized",
       "Site exchange task packet created",
-      "Site sample exchange data created"
+      "Site sample exchange data created",
+      "Site issue handoff indexed"
     ],
     "org_remaining": [
       "Site exchange export page",
@@ -26,7 +27,8 @@
       "monitoring templates",
       "initial schema checkpoint",
       "initial monitoring event",
-      "Site retry package"
+      "Site retry package",
+      "Site issue index"
     ],
     "repo_remaining": [
       "automated monitor updater",
