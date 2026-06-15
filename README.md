@@ -57,6 +57,7 @@ It includes:
 - Apply-time blocking for unknown role transitions.
 - Apply-time blocking for invalid completion invariant type.
 - Visible `role_enforcement` runtime outputs.
+- Execution receipts that preserve apply-time `role_enforcement`.
 - A reproducible role-context demo fixture builder.
 - A generated role-context fixture verifier.
 - A role-context demo verification script.
@@ -71,7 +72,7 @@ This repo does not issue TV/TVC tokens. It consumes TVC-style authority tokens s
 
 This repo does not mint StegID receipts. It consumes StegID-style verified receipt JSON so that the runtime can be integrated with StegID receipt minting and verification.
 
-This repo does not yet fully enforce role transitions across all runtime modes. It preserves role context, emits warning-only findings for validate and dry-run, requires complete role context at apply time, and emits visible role enforcement posture in runtime outputs.
+This repo does not yet fully enforce role transitions across all runtime modes. It preserves role context, emits warning-only findings for validate and dry-run, requires complete role context at apply time, emits visible role enforcement posture in runtime outputs, and preserves apply-time role enforcement posture in execution receipts.
 
 ## Quick Start
 
