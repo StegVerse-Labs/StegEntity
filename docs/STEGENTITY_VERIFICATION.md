@@ -4,13 +4,15 @@
 
 This document defines the repeatable verification path for StegEntity.
 
-Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, and role-context demo check remain internally consistent.
+Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, generated fixtures, and role-context demo check remain internally consistent.
 
 ## Local Verification
 
 From the repository root, run:
 
 ```bash
+python tools/build_role_context_demo.py
+python tools/verify_generated_role_context_demo.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 ```
@@ -32,6 +34,8 @@ It runs on:
 The workflow performs:
 
 ```text
+python tools/build_role_context_demo.py
+python tools/verify_generated_role_context_demo.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 ```
@@ -45,6 +49,7 @@ The current verification path checks:
 - role_context warning behavior;
 - execution receipt role_context preservation;
 - role-context demo builder hash binding;
+- generated role-context capsule, receipt, and authority file consistency;
 - role-context demo runtime validation;
 - warning-free role-context demo posture.
 
