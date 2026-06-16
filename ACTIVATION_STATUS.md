@@ -41,6 +41,8 @@ The activation command verifies that completion invariant output is present, sat
 
 For operator steps and failure interpretation, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
+For CI failure interpretation, see `docs/STEGENTITY_CI_FAILURE_GUIDE.md`.
+
 ## Current Non-Claims
 
 This status does not claim:
@@ -59,6 +61,7 @@ This status does not claim:
 - `docs/STEGENTITY_ACTIVATION.md`
 - `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`
 - `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`
+- `docs/STEGENTITY_CI_FAILURE_GUIDE.md`
 - `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`
 - `docs/STEGENTITY_VERIFICATION.md`
 
