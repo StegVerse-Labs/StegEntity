@@ -40,6 +40,29 @@ class StegEntityRuntime:
                 blocks.append(f"completion_invariant_missing_expected_sha256:{op.op_id}")
         return blocks
 
+    def _completion_invariant_result(self, capsule: MaintenanceCapsule, result: Dict[str, Any]) -> Dict[str, Any]:
+        required = bool(capsule.role_context.get("completion_invariant_required"))
+        operations = result.get("operations", [])
+        checks = []
+        for item in operations:
+            expected = item.get("expected_sha256")
+            written = item.get("written_sha256")
+            checks.append({
+                "op_id": item.get("op_id"),
+                "destination": item.get("destination"),
+                "expected_sha256": expected,
+                "written_sha256": written,
+                "matched": bool(expected and written and expected == written),
+                "verified": bool(item.get("verified")),
+            })
+        satisfied = all(check["matched"] and check["verified"] for check in checks) if required else True
+        return {
+            "required": required,
+            "basis": "expected_sha256",
+            "satisfied": satisfied,
+            "checks": checks,
+        }
+
     def _enforce_apply_role_context(self, capsule: MaintenanceCapsule, capsule_hash: str, receipt: VerifiedReceipt, token: AuthorityToken) -> None:
         blocks = apply_role_context_blocks(capsule.role_context)
         blocks.extend(self._completion_invariant_blocks(capsule))
@@ -108,6 +131,7 @@ class StegEntityRuntime:
         adapter = self._adapter(capsule)
         result = adapter.apply(capsule.operations, capsule.capsule_id)
         role_enforcement = role_enforcement_result(capsule.role_context, "apply")
+        completion_invariant = self._completion_invariant_result(capsule, result)
         receipt_body = make_receipt(
             receipt_type="execution",
             capsule_hash=capsule_hash,
@@ -119,6 +143,7 @@ class StegEntityRuntime:
             result=result,
             role_context=capsule.role_context,
             role_enforcement=role_enforcement,
+            completion_invariant=completion_invariant,
         )
         receipt_path = self.receipts_dir / f"{capsule.capsule_id}.execution_receipt.json"
         write_json(receipt_path, receipt_body)
@@ -130,6 +155,7 @@ class StegEntityRuntime:
             "capsule_hash": capsule_hash,
             "receipt_path": str(receipt_path),
             "receipt_hash": receipt_body["receipt_hash"],
+            "completion_invariant": completion_invariant,
             "result": result,
         }, "apply")
         self._write_outcome(capsule.capsule_id, "apply", outcome)
