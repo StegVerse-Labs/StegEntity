@@ -1,0 +1,91 @@
+{
+  "schema": {
+    "name": "stegverse.stegentity.activation_manifest",
+    "version": "0.1.0"
+  },
+  "repository": {
+    "organization": "StegVerse-Labs",
+    "name": "StegEntity",
+    "primary_language": "python",
+    "external_dependencies_required": false
+  },
+  "activation": {
+    "status": "activation_candidate",
+    "posture": "local_governed_runtime_module",
+    "activation_percent_estimate": 89,
+    "production_complete": false,
+    "org_wide_complete": false,
+    "claim": "StegEntity can locally demonstrate admissible mutation and refused mutation with receipts, outcome reports, role enforcement posture, and completion invariant evidence."
+  },
+  "canonical_commands": {
+    "build_role_context_demo": "python tools/build_role_context_demo.py",
+    "verify_generated_demo": "python tools/verify_generated_role_context_demo.py",
+    "unit_tests": "python -m unittest discover tests",
+    "role_context_demo_check": "python tools/check_role_context_demo.py",
+    "activation_check": "python tools/check_repo_activation.py"
+  },
+  "activation_evidence": {
+    "local_runtime": true,
+    "local_filesystem_adapter": true,
+    "capsule_validation": true,
+    "verified_receipt_consumption": true,
+    "authority_token_consumption": true,
+    "dry_run_path": true,
+    "successful_apply_path": true,
+    "refused_apply_path": true,
+    "execution_receipt_emission": true,
+    "refusal_receipt_emission": true,
+    "outcome_report_emission": true,
+    "blocked_outcome_report_emission": true,
+    "role_enforcement_output": true,
+    "completion_invariant_output": true,
+    "ci_activation_check": true
+  },
+  "activation_requirements": {
+    "success_path": [
+      "validation_succeeds",
+      "dry_run_succeeds",
+      "apply_succeeds",
+      "target_state_written",
+      "execution_receipt_emitted",
+      "apply_outcome_report_emitted",
+      "completion_invariant_required",
+      "completion_invariant_satisfied",
+      "completion_invariant_hash_matched",
+      "completion_invariant_consistent_across_return_receipt_and_report"
+    ],
+    "refusal_path": [
+      "apply_refused_before_mutation",
+      "target_state_not_written",
+      "blocked_apply_receipt_emitted",
+      "execution_receipt_not_emitted",
+      "blocked_outcome_report_emitted",
+      "blocked_outcome_hash_bound_to_refusal_receipt"
+    ]
+  },
+  "non_claims": {
+    "production_deployment_readiness": false,
+    "live_stegid_minting": false,
+    "live_tv_tvc_issuance": false,
+    "multi_adapter_parity": false,
+    "cross_repo_admissibility_completion": false,
+    "org_wide_governance_completion": false
+  },
+  "gap_status": {
+    "G1_full_role_transition_enforcement": "partial",
+    "G2_completion_invariant_enforcement": "partial",
+    "G3_refusal_evidence_expansion": "partial",
+    "G4_multi_adapter_readiness": "open",
+    "G5_live_stegid_integration": "open",
+    "G6_live_tv_tvc_integration": "open",
+    "G7_cross_repo_compatibility": "open"
+  },
+  "documents": {
+    "activation_status": "ACTIVATION_STATUS.md",
+    "activation_doctrine": "docs/STEGENTITY_ACTIVATION.md",
+    "activation_gap_list": "docs/STEGENTITY_ACTIVATION_GAP_LIST.md",
+    "local_activation_runbook": "docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md",
+    "role_transition_policy": "docs/STEGENTITY_ROLE_TRANSITION_POLICY.md",
+    "verification": "docs/STEGENTITY_VERIFICATION.md"
+  }
+}
