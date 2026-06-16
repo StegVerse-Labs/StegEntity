@@ -19,6 +19,7 @@ REQUIRED_TOP_LEVEL = {
 REQUIRED_COMMANDS = {
     "build_role_context_demo",
     "verify_generated_demo",
+    "activation_manifest_check",
     "unit_tests",
     "role_context_demo_check",
     "activation_check",
@@ -78,6 +79,7 @@ REQUIRED_DOCUMENTS = {
     "activation_doctrine",
     "activation_gap_list",
     "local_activation_runbook",
+    "ci_failure_guide",
     "role_transition_policy",
     "verification",
 }
@@ -118,6 +120,7 @@ def main() -> int:
 
     commands = manifest["canonical_commands"]
     require_keys(commands, REQUIRED_COMMANDS, "canonical_commands")
+    require(commands["activation_manifest_check"] == "python tools/verify_activation_manifest.py", "activation_manifest_check_command_mismatch")
     require(commands["activation_check"] == "python tools/check_repo_activation.py", "activation_check_command_mismatch")
 
     evidence = manifest["activation_evidence"]
