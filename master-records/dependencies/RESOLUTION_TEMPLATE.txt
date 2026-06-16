@@ -1,0 +1,21 @@
+Dependency resolution template
+
+Generated:
+
+Anchor task:
+-
+
+Resolved dependency:
+-
+
+Resolution date:
+-
+
+Confirmed by:
+-
+
+Unblocked tasks:
+-
+
+Next record to create:
+-
