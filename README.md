@@ -2,7 +2,7 @@
 
 StegEntity is the platform-agnostic runtime environment for governed AI entities in the StegVerse ecosystem.
 
-Current activation posture: see `ACTIVATION_STATUS.md`.
+Current activation posture: see `ACTIVATION_STATUS.md`. Machine-readable activation posture: see `activation_manifest.json`.
 
 It hosts and constrains AI-role expressions including:
 
@@ -58,6 +58,7 @@ It includes:
 - Repo activation doctrine.
 - Activation gap checklist.
 - Local activation runbook.
+- Machine-readable activation manifest.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - Apply-time required role context enforcement.
@@ -119,6 +120,8 @@ python tools/check_repo_activation.py
 ```
 
 For activation status, see `ACTIVATION_STATUS.md`.
+
+For machine-readable activation posture, see `activation_manifest.json`.
 
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
@@ -209,6 +212,8 @@ For activation gaps, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
 For activation runbook, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
 For activation status, see `ACTIVATION_STATUS.md`.
+
+For machine-readable activation posture, see `activation_manifest.json`.
 
 ## Relationship to StegID
 
