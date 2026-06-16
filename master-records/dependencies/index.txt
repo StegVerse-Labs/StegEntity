@@ -1,0 +1,22 @@
+Dependency index
+
+Generated: 2026-06-15
+
+Purpose:
+Track task dependencies and the downstream work each dependency unlocks.
+
+Templates:
+- master-records/dependencies/TEMPLATE.txt
+
+Active dependency records:
+- master-records/dependencies/2026-06-14-site-exchange-pages.txt
+
+Current active dependency summary:
+- task: 2026-06-14-site-exchange-pages
+- owner: StegVerse-Labs/Site
+- state: partial
+- downstream task count: 5
+
+Primary unresolved dependencies:
+- governance/exchange-export.html
+- governance/exchange-check.html
