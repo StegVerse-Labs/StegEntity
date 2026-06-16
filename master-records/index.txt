@@ -1,0 +1,31 @@
+Master-Records namespace index
+
+Generated: 2026-06-15
+
+Purpose:
+Provide a single navigable index for the Master-Records monitoring and scheduling node.
+
+Namespaces:
+- standards: ecosystem standards and implementation notes
+- monitoring: status, events, references, and history
+- tasks incoming: new task packets
+- tasks assigned: worker assignments
+- tasks processing: retry and processing records
+- tasks waiting: external dependency records
+- completed: completed task records and dispatcher notes
+- next: next eligible task queues
+- workers: repo worker registry
+- tools: updater specs and smoke commands
+- activation: activation checklist and status notes
+
+Current primary task:
+- 2026-06-14-site-exchange-pages
+
+Current primary target:
+- StegVerse-Labs/Site
+
+Current primary state:
+- waiting
+
+Current activation:
+- 74 percent
