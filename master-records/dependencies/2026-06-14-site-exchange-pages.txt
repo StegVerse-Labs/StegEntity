@@ -1,0 +1,29 @@
+Dependency record
+
+Generated: 2026-06-15
+
+Anchor task:
+- 2026-06-14-site-exchange-pages
+
+Depends on:
+- governance/exchange-export.html exists in StegVerse-Labs/Site
+- governance/exchange-check.html exists in StegVerse-Labs/Site
+
+Already satisfied:
+- data/governance/sample-exchange.json exists in StegVerse-Labs/Site
+
+Unblocks:
+- completed task record
+- receipt reference entry
+- artifact history entry
+- activation status update
+- monitor updater smoke execution
+
+Current dependency state:
+- partial
+
+Dependency owner:
+- StegVerse-Labs/Site
+
+Downstream task count:
+- 5
