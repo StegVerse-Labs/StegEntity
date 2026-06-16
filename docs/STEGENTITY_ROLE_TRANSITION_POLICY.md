@@ -33,6 +33,7 @@ Current behavior:
 - apply blocks incomplete role context;
 - apply blocks unknown `role_transition` values;
 - apply blocks non-boolean `completion_invariant_required` values;
+- apply blocks RT-002 proposal-to-execution posture without explicit authority evidence;
 - refused apply attempts write `apply.blocked` outcome reports before raising;
 - refused apply attempts emit `blocked_apply` receipts, not execution receipts;
 - refused apply attempts do not mutate target state;
@@ -56,12 +57,12 @@ StegEntity is currently at Stage 4 for apply and Stage 2 for validate/dry-run.
 
 ## Role Transition Classes
 
-| Transition | Source Role | Counterparty Role | Allowed Posture | Current Stage | Future Hard Rule |
+| Transition | Source Role | Counterparty Role | Allowed Posture | Current Stage | Hard Rule |
 |---|---|---|---|---|---|
 | RT-001 | StegBot | StegAgent | automation-to-proposal | warning-only | StegBot may propose but may not execute without StegEntity authority |
-| RT-002 | StegAgent | StegEntity | proposal-to-execution-request | warning-only | StegAgent proposal may not become execution without TVC authority and admissible capsule |
+| RT-002 | StegAgent | StegEntity | proposal-to-execution-request | apply-blocked without authority evidence | StegAgent proposal may not become execution without explicit authority evidence |
 | RT-003 | StegVerseAI | UserAI | counterpart-to-delegation-request | warning-only | StegVerseAI recommendation may not become user delegation without user-bound authority |
-| RT-004 | StegAgent | StegEntity | execution-requires-admissibility | warning-only | execution requires receipt, TVC token, capsule, adapter, target, verification, and completion invariant |
+| RT-004 | StegAgent | StegEntity | execution-requires-admissibility | apply-required role context | execution requires receipt, TVC token, capsule, adapter, target, verification, and completion invariant |
 | RT-005 | StegEntity | StegAgent | execution-to-report | warning-only | completion report requires verified outcome and execution receipt |
 | RT-006 | UserAI | StegEntity | delegated-user-action | warning-only | UserAI delegation must be current, scoped, receipt-bound, and target-bounded |
 | UNKNOWN | Any | Any | not allowed for apply | apply-blocked | unknown role transitions are blocked at apply time |
@@ -93,7 +94,7 @@ These conversions should never be silently allowed.
 | RB-000C | missing_or_incomplete_role_context_on_apply | apply requires declared role posture | implemented for apply | block |
 | RB-000D | refused_apply_without_outcome | refused attempts must be reconstructable | implemented | block |
 | RB-000E | refused_apply_as_execution_receipt | refusal receipt must not masquerade as execution | implemented | block |
-| RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | planned | block |
+| RB-001 | proposal_to_execution_without_authority | proposal standing is not execution standing | partially implemented for RT-002 | block |
 | RB-002 | adapter_capability_to_admissibility | an adapter can act but cannot authorize action | planned | block |
 | RB-003 | dry_run_success_to_apply_authority | dry-run success does not release authority | planned | block |
 | RB-004 | platform_event_to_completion | platform mutation is not StegVerse completion | planned | block |
@@ -104,13 +105,23 @@ These conversions should never be silently allowed.
 
 ---
 
+## Authority Evidence Values
+
+RT-002 apply is allowed only when one of these authority evidence values is declared in role context:
+
+```text
+receipt+tvc+capsule
+tvc+receipt+capsule
+explicit_authority
+```
+
 ## Minimal Hard-Enforcement Order
 
 Hard enforcement should be introduced in this order:
 
 1. Block unknown `role_transition` values for apply only. **Implemented.**
 2. Require `completion_invariant_required` to be boolean for apply. **Implemented.**
-3. Block `proposal_not_execution` when the operation attempts apply without authority.
+3. Block `proposal_not_execution` when the operation attempts apply without authority. **Partially implemented for RT-002.**
 4. Require full `role_context` for apply. **Implemented.**
 5. Echo role enforcement result in outcome reports. **Implemented for successful and refused outputs.**
 6. Include role enforcement result in execution receipts. **Implemented for successful apply receipts.**
