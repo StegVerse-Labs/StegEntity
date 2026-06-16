@@ -31,12 +31,16 @@ Current local activation is supported by:
 
 ### G1 — Full Role Transition Enforcement
 
-Status: open
+Status: partial
 
-Need:
+Implemented:
 
-- enforce role transition classes beyond required role context;
-- prevent proposal posture from becoming execution posture without explicit authority evidence;
+- RT-002 proposal-to-execution apply is blocked without explicit authority evidence;
+- RT-002 apply is allowed when authority evidence is declared as `receipt+tvc+capsule`, `tvc+receipt+capsule`, or `explicit_authority`.
+
+Still needed:
+
+- enforce more role transition classes beyond required role context;
 - distinguish role standing from adapter capability;
 - keep validation and dry-run behavior stable while apply enforcement expands.
 
@@ -129,7 +133,7 @@ Activation impact: high.
 ## Current Estimate
 
 ```text
-StegEntity Repo Activation: ~80% complete vs Repo Activation
+StegEntity Repo Activation: ~83% complete vs Repo Activation
 ```
 
 This estimate is local-activation oriented. It does not claim production completion.
