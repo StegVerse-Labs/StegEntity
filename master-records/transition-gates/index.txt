@@ -1,0 +1,23 @@
+Transition gate index
+
+Generated: 2026-06-15
+
+Purpose:
+Track state-change gates that decide whether a task may move from one lifecycle state to another.
+
+Templates:
+- master-records/transition-gates/TEMPLATE.txt
+
+Active gates:
+- master-records/transition-gates/site-exchange-waiting-to-completed.txt
+
+Current active gate summary:
+- task: 2026-06-14-site-exchange-pages
+- current state: waiting
+- requested next state: completed
+- result: do not move to completed yet
+- missing: confirmation for governance/exchange-export.html
+- missing: confirmation for governance/exchange-check.html
+
+Next action:
+- apply missing Site pages
