@@ -1,0 +1,20 @@
+Scheduler policy
+
+Generated: 2026-06-15
+
+Evaluation steps:
+1. Scan incoming task queue.
+2. Validate assigned task records.
+3. Recheck waiting tasks.
+4. Review readiness gates.
+5. Review dependency records.
+6. Review verification records.
+7. Review transition gates.
+8. Move only eligible tasks forward.
+9. Record completed tasks when allowed.
+10. Update next eligible task queue.
+11. Update activation status.
+
+Rule:
+- task movement must follow the evidence records
+- missing required files keep the task waiting
