@@ -26,6 +26,21 @@ def require(condition: bool, message: str) -> None:
         raise AssertionError(message)
 
 
+def require_completion_invariant(data: dict, label: str) -> dict:
+    invariant = data.get("completion_invariant")
+    require(isinstance(invariant, dict), f"{label} missing completion invariant")
+    require(invariant.get("required") is True, f"{label} completion invariant not required")
+    require(invariant.get("basis") == "expected_sha256", f"{label} completion invariant basis mismatch")
+    require(invariant.get("satisfied") is True, f"{label} completion invariant not satisfied")
+    checks = invariant.get("checks")
+    require(isinstance(checks, list) and checks, f"{label} completion invariant checks missing")
+    for check in checks:
+        require(check.get("matched") is True, f"{label} completion invariant hash mismatch")
+        require(check.get("verified") is True, f"{label} completion invariant not verified")
+        require(check.get("expected_sha256") == check.get("written_sha256"), f"{label} expected and written hash differ")
+    return invariant
+
+
 def check_success_path() -> dict:
     capsule_hash, capsule, receipt, authority = bound_objects(build_capsule())
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -47,14 +62,20 @@ def check_success_path() -> dict:
         require(apply_report_path.exists(), "apply outcome report missing")
 
         receipt_body = json.loads(execution_receipt_path.read_text(encoding="utf-8"))
+        apply_report = json.loads(apply_report_path.read_text(encoding="utf-8"))
         require(receipt_body["receipt_type"] == "execution", "wrong success receipt type")
         require(receipt_body["role_enforcement"]["decision"] == "ALLOW", "success role enforcement not ALLOW")
+        outcome_invariant = require_completion_invariant(applied, "apply outcome")
+        receipt_invariant = require_completion_invariant(receipt_body, "execution receipt")
+        report_invariant = require_completion_invariant(apply_report, "apply report")
+        require(outcome_invariant == receipt_invariant == report_invariant, "completion invariant differs across artifacts")
 
         return {
             "capsule_hash": capsule_hash,
             "target_written": target_path.exists(),
             "execution_receipt": execution_receipt_path.name,
             "apply_report": apply_report_path.name,
+            "completion_invariant_satisfied": outcome_invariant["satisfied"],
         }
 
 
