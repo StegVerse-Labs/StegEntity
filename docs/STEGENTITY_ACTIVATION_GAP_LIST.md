@@ -48,13 +48,19 @@ Activation impact: high.
 
 ### G2 — Completion Invariant Enforcement
 
-Status: open
+Status: partial
 
-Need:
+Implemented:
 
-- enforce completion invariant requirements beyond boolean shape;
-- verify destination state against declared expected state;
-- ensure completion cannot be asserted from platform mutation alone.
+- when `completion_invariant_required` is true, apply requires every operation to declare `expected_sha256`;
+- local adapter verifies written output hash against expected hash when declared;
+- missing expected hash becomes a refused apply before mutation.
+
+Still needed:
+
+- verify richer destination state beyond single-file hash evidence;
+- ensure completion cannot be asserted from platform mutation alone across all adapters;
+- expose completion-invariant result as a first-class receipt/outcome field.
 
 Activation impact: high.
 
@@ -133,7 +139,7 @@ Activation impact: high.
 ## Current Estimate
 
 ```text
-StegEntity Repo Activation: ~83% complete vs Repo Activation
+StegEntity Repo Activation: ~85% complete vs Repo Activation
 ```
 
 This estimate is local-activation oriented. It does not claim production completion.
