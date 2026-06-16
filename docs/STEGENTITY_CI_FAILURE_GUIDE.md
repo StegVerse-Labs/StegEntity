@@ -6,6 +6,8 @@ This guide maps StegEntity CI failures to the activation posture they threaten.
 
 CI is not merely a software-health signal for this repo. CI is part of the local activation evidence chain.
 
+This guide is itself part of that evidence chain: it is linked from `activation_manifest.json`, required by `tools/verify_activation_manifest.py`, and covered by `tests/test_ci_failure_guide_manifest_link.py`.
+
 ## Workflow
 
 Canonical workflow:
@@ -35,6 +37,23 @@ python tools/check_repo_activation.py
 | `python -m unittest discover tests` | runtime, evidence, or helper behavior regressed | inspect failing test name before changing docs |
 | `check_role_context_demo.py` | role-context demo is not warning-free or not admissible | inspect role-context warnings and capsule hash |
 | `check_repo_activation.py` | local activation evidence failed | inspect success-path and refusal-path assertion message |
+
+## Guide Registration Checks
+
+This guide must remain registered in:
+
+```text
+activation_manifest.json -> documents.ci_failure_guide
+```
+
+It is enforced by:
+
+```text
+python tools/verify_activation_manifest.py
+python -m unittest discover tests
+```
+
+If either check fails because of this guide, fix the manifest or missing document path. Do not remove the requirement unless the repo's activation document map is being intentionally redesigned.
 
 ## Activation-Critical Failures
 
