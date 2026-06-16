@@ -12,7 +12,7 @@
   "activation": {
     "status": "activation_candidate",
     "posture": "local_governed_runtime_module",
-    "activation_percent_estimate": 89,
+    "activation_percent_estimate": 93,
     "production_complete": false,
     "org_wide_complete": false,
     "claim": "StegEntity can locally demonstrate admissible mutation and refused mutation with receipts, outcome reports, role enforcement posture, and completion invariant evidence."
@@ -20,6 +20,7 @@
   "canonical_commands": {
     "build_role_context_demo": "python tools/build_role_context_demo.py",
     "verify_generated_demo": "python tools/verify_generated_role_context_demo.py",
+    "activation_manifest_check": "python tools/verify_activation_manifest.py",
     "unit_tests": "python -m unittest discover tests",
     "role_context_demo_check": "python tools/check_role_context_demo.py",
     "activation_check": "python tools/check_repo_activation.py"
@@ -85,6 +86,7 @@
     "activation_doctrine": "docs/STEGENTITY_ACTIVATION.md",
     "activation_gap_list": "docs/STEGENTITY_ACTIVATION_GAP_LIST.md",
     "local_activation_runbook": "docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md",
+    "ci_failure_guide": "docs/STEGENTITY_CI_FAILURE_GUIDE.md",
     "role_transition_policy": "docs/STEGENTITY_ROLE_TRANSITION_POLICY.md",
     "verification": "docs/STEGENTITY_VERIFICATION.md"
   }
