@@ -4,7 +4,7 @@
 
 This document defines the repeatable verification path for StegEntity.
 
-Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, generated fixtures, role-context demo check, and local activation check remain internally consistent.
+Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, generated fixtures, role-context demo check, activation manifest, and local activation check remain internally consistent.
 
 ## Local Verification
 
@@ -13,9 +13,38 @@ From the repository root, run:
 ```bash
 python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
+python tools/verify_activation_manifest.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 python tools/check_repo_activation.py
+```
+
+## Activation Manifest Verification
+
+The activation manifest verifier is:
+
+```bash
+python tools/verify_activation_manifest.py
+```
+
+It verifies:
+
+- activation manifest schema name and version;
+- repository identity;
+- activation posture;
+- activation non-claims;
+- canonical verification commands;
+- activation evidence flags;
+- success-path requirements;
+- refusal-path requirements;
+- gap statuses;
+- linked document paths.
+
+It is covered twice:
+
+```text
+Direct CI step: python tools/verify_activation_manifest.py
+Unit discovery: python -m unittest discover tests
 ```
 
 ## Local Activation Check
@@ -61,6 +90,7 @@ The workflow performs:
 ```text
 python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
+python tools/verify_activation_manifest.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 python tools/check_repo_activation.py
@@ -83,6 +113,9 @@ The current verification path checks:
 - execution receipt completion_invariant preservation;
 - refused apply outcome reports;
 - non-execution refusal receipt artifacts;
+- activation manifest schema and required fields;
+- activation manifest command and non-claim consistency;
+- activation manifest document-link consistency;
 - role-context demo builder hash binding;
 - generated role-context capsule, receipt, and authority file consistency;
 - role-context demo runtime validation;
@@ -102,4 +135,4 @@ This verification path does not yet prove:
 
 ## Governing Sentence
 
-StegEntity verification proves the current local runtime, role-context demo, activation path, refusal path, and completion-invariant artifact path are internally consistent. It does not by itself establish org-wide governance completion or production admissibility.
+StegEntity verification proves the current local runtime, role-context demo, activation manifest, activation path, refusal path, and completion-invariant artifact path are internally consistent. It does not by itself establish org-wide governance completion or production admissibility.
