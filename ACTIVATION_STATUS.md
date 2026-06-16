@@ -37,6 +37,8 @@ python tools/check_repo_activation.py
 
 The activation command verifies that completion invariant output is present, satisfied, and identical across the apply return value, execution receipt, and persisted apply report.
 
+For operator steps and failure interpretation, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
+
 ## Current Non-Claims
 
 This status does not claim:
@@ -53,6 +55,7 @@ This status does not claim:
 - `README.md`
 - `docs/STEGENTITY_ACTIVATION.md`
 - `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`
+- `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`
 - `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`
 - `docs/STEGENTITY_VERIFICATION.md`
 
