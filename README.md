@@ -58,6 +58,7 @@ It includes:
 - Repo activation doctrine.
 - Activation gap checklist.
 - Local activation runbook.
+- CI failure guide.
 - Machine-readable activation manifest.
 - Activation manifest verifier.
 - Optional role context parsing and preservation.
@@ -135,6 +136,8 @@ For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 For remaining activation work, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
 
 For operator steps, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
+
+For CI failure interpretation, see `docs/STEGENTITY_CI_FAILURE_GUIDE.md`.
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
 
@@ -217,6 +220,8 @@ For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 For activation gaps, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
 
 For activation runbook, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
+
+For CI failure interpretation, see `docs/STEGENTITY_CI_FAILURE_GUIDE.md`.
 
 For activation status, see `ACTIVATION_STATUS.md`.
 
