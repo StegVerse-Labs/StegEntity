@@ -1,0 +1,24 @@
+Verification record template
+
+Generated:
+
+Task:
+-
+
+Checked records:
+-
+
+Checked target files:
+-
+
+Confirmed:
+-
+
+Missing:
+-
+
+Result:
+-
+
+Next allowed action:
+-
