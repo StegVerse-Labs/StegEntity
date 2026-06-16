@@ -1,0 +1,27 @@
+Transition gate template
+
+Generated:
+
+Task:
+-
+
+Current state:
+-
+
+Requested next state:
+-
+
+Needed records:
+-
+
+Available records:
+-
+
+Missing records:
+-
+
+Result:
+-
+
+Next action:
+-
