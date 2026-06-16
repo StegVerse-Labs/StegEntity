@@ -1,0 +1,22 @@
+Dependency check usage
+
+Generated: 2026-06-15
+
+Task:
+- 2026-06-14-site-exchange-pages
+
+Open these records:
+- master-records/dependencies/2026-06-14-site-exchange-pages.txt
+- master-records/readiness/site-exchange-pages-readiness.txt
+- master-records/current-state.txt
+
+Confirm in target repo:
+- data/governance/sample-exchange.json
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+Expected current result:
+- keep waiting
+
+Reason:
+- only the sample exchange data file has been confirmed so far
