@@ -23,6 +23,7 @@ Current activation evidence includes:
 - successful apply path;
 - execution receipt emission;
 - outcome report emission;
+- first-class completion invariant output;
 - refused apply path;
 - refusal receipt emission;
 - blocked outcome report emission;
@@ -33,6 +34,8 @@ Current activation evidence includes:
 ```bash
 python tools/check_repo_activation.py
 ```
+
+The activation command verifies that completion invariant output is present, satisfied, and identical across the apply return value, execution receipt, and persisted apply report.
 
 ## Current Non-Claims
 
@@ -55,4 +58,4 @@ This status does not claim:
 
 ## Governing Sentence
 
-StegEntity activation status must remain evidence-bound: local activation may be claimed only when admissible and refused transition paths are both reproducible, receipt-bearing, and outcome-reportable without claiming production completion.
+StegEntity activation status must remain evidence-bound: local activation may be claimed only when admissible and refused transition paths are both reproducible, receipt-bearing, outcome-reportable, and completion-invariant checked without claiming production completion.
