@@ -10,6 +10,8 @@ StegEntity currently has enough evidence to be run as a governed local runtime m
 
 This is not a production-complete claim.
 
+Machine-readable status is available in `activation_manifest.json`.
+
 ## Activation Evidence
 
 Current activation evidence includes:
@@ -53,6 +55,7 @@ This status does not claim:
 ## Linked Documents
 
 - `README.md`
+- `activation_manifest.json`
 - `docs/STEGENTITY_ACTIVATION.md`
 - `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`
 - `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`
