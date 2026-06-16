@@ -39,6 +39,8 @@ python tools/check_repo_activation.py
 
 The activation command verifies that completion invariant output is present, satisfied, and identical across the apply return value, execution receipt, and persisted apply report.
 
+For activation completion criteria, see `docs/STEGENTITY_ACTIVATION_COMPLETION_CRITERIA.md`.
+
 For operator steps and failure interpretation, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
 For CI failure interpretation, see `docs/STEGENTITY_CI_FAILURE_GUIDE.md`.
@@ -48,8 +50,8 @@ For CI failure interpretation, see `docs/STEGENTITY_CI_FAILURE_GUIDE.md`.
 This status does not claim:
 
 - production deployment readiness;
-- live TV/TVC issuance;
-- live StegID minting;
+- active TV/TVC issuance;
+- active StegID minting;
 - multi-adapter readiness;
 - full org-wide governance completion;
 - cross-repo admissibility completion.
@@ -60,6 +62,7 @@ This status does not claim:
 - `activation_manifest.json`
 - `docs/STEGENTITY_ACTIVATION.md`
 - `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`
+- `docs/STEGENTITY_ACTIVATION_COMPLETION_CRITERIA.md`
 - `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`
 - `docs/STEGENTITY_CI_FAILURE_GUIDE.md`
 - `docs/STEGENTITY_ROLE_TRANSITION_POLICY.md`
