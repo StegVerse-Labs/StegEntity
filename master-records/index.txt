@@ -12,6 +12,10 @@ Namespaces:
 - tasks assigned: worker assignments
 - tasks processing: retry and processing records
 - tasks waiting: external dependency records
+- readiness: completion readiness gates
+- dependencies: dependency records and downstream task links
+- verification: verification records used as transition evidence
+- transition-gates: lifecycle movement decisions
 - completed: completed task records and dispatcher notes
 - next: next eligible task queues
 - workers: repo worker registry
@@ -27,5 +31,8 @@ Current primary target:
 Current primary state:
 - waiting
 
+Current gate result:
+- do not move to completed yet
+
 Current activation:
-- 74 percent
+- 87 percent
