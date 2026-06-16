@@ -1,0 +1,21 @@
+Dependency record template
+
+Generated:
+
+Anchor task:
+-
+
+Depends on:
+-
+
+Unblocks:
+-
+
+Current dependency state:
+-
+
+Dependency owner:
+-
+
+Downstream task count:
+-
