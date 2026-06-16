@@ -1,0 +1,22 @@
+Active orchestration cycle
+
+Generated: 2026-06-15
+
+Cycle id:
+- cycle-2026-06-15-001
+
+Anchor task:
+- 2026-06-14-site-exchange-pages
+
+Evaluation phase:
+- transition-gates
+
+Current result:
+- waiting remains correct
+
+Next evaluation trigger:
+- confirmation of governance/exchange-export.html
+- confirmation of governance/exchange-check.html
+
+Next expected lifecycle event:
+- completed task record creation after confirmations exist
