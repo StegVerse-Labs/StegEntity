@@ -1,0 +1,22 @@
+Readiness gate index
+
+Generated: 2026-06-15
+
+Purpose:
+Track all readiness gates that decide whether waiting tasks may move forward.
+
+Templates:
+- master-records/readiness/TEMPLATE.txt
+
+Active gates:
+- master-records/readiness/site-exchange-pages-readiness.txt
+
+Current active gate summary:
+- task: 2026-06-14-site-exchange-pages
+- status: not ready for completion
+- confirmed: data/governance/sample-exchange.json
+- missing: governance/exchange-export.html
+- missing: governance/exchange-check.html
+
+Rule:
+A task should not move to completed until its readiness gate has no missing required confirmations.
