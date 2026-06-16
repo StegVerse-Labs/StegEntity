@@ -1,0 +1,22 @@
+Evaluation order
+
+Generated: 2026-06-15
+
+Order:
+1. incoming
+2. assigned
+3. processing
+4. waiting
+5. readiness
+6. dependencies
+7. verification
+8. transition-gates
+9. completed
+10. next
+11. activation
+
+Current phase:
+- transition-gates
+
+Current result:
+- do not move current task to completed yet
