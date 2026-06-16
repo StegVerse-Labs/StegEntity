@@ -1,0 +1,18 @@
+Master-Records orchestration index
+
+Generated: 2026-06-15
+
+Purpose:
+Track the active orchestration cycle for the Master-Records node.
+
+Files:
+- master-records/orchestration/scheduler-policy.txt
+- master-records/orchestration/evaluation-order.txt
+- master-records/orchestration/task-selection-template.txt
+- master-records/orchestration/active-cycle.txt
+
+Current anchor task:
+- 2026-06-14-site-exchange-pages
+
+Current result:
+- waiting remains correct
