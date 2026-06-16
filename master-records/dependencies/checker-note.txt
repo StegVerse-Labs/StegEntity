@@ -1,0 +1,23 @@
+Dependency checker note
+
+Generated: 2026-06-15
+
+Inputs:
+- dependency record
+- readiness gate
+- current state
+- target repo file list
+
+Rule:
+- if any required file is missing, keep the task waiting
+- if all required files exist, create the completed record
+
+Current task:
+- 2026-06-14-site-exchange-pages
+
+Current result:
+- waiting
+
+Reason:
+- governance/exchange-export.html is not confirmed
+- governance/exchange-check.html is not confirmed
