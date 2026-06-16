@@ -4,7 +4,7 @@
 
 This document defines the repeatable verification path for StegEntity.
 
-Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, generated fixtures, role-context demo check, activation manifest, CI failure guide, and local activation check remain internally consistent.
+Verification is not the same as governance completion. It proves that the current runtime, examples, role-context warning path, generated fixtures, role-context demo check, activation manifest, activation completion criteria, CI failure guide, and local activation check remain internally consistent.
 
 ## Local Verification
 
@@ -38,7 +38,7 @@ It verifies:
 - success-path requirements;
 - refusal-path requirements;
 - gap statuses;
-- linked document paths, including the CI failure guide.
+- linked document paths, including the activation completion criteria and CI failure guide.
 
 It is covered twice:
 
@@ -96,6 +96,12 @@ python tools/check_role_context_demo.py
 python tools/check_repo_activation.py
 ```
 
+For activation completion criteria, see:
+
+```text
+docs/STEGENTITY_ACTIVATION_COMPLETION_CRITERIA.md
+```
+
 For failure interpretation, see:
 
 ```text
@@ -122,6 +128,7 @@ The current verification path checks:
 - activation manifest schema and required fields;
 - activation manifest command and non-claim consistency;
 - activation manifest document-link consistency;
+- activation completion criteria document-link consistency;
 - CI failure guide document-link consistency;
 - role-context demo builder hash binding;
 - generated role-context capsule, receipt, and authority file consistency;
@@ -142,4 +149,4 @@ This verification path does not yet prove:
 
 ## Governing Sentence
 
-StegEntity verification proves the current local runtime, role-context demo, activation manifest, CI failure guide, activation path, refusal path, and completion-invariant artifact path are internally consistent. It does not by itself establish org-wide governance completion or production admissibility.
+StegEntity verification proves the current local runtime, role-context demo, activation manifest, activation completion criteria, CI failure guide, activation path, refusal path, and completion-invariant artifact path are internally consistent. It does not by itself establish org-wide governance completion or production admissibility.
