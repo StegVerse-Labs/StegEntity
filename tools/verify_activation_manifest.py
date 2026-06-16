@@ -78,6 +78,7 @@ REQUIRED_DOCUMENTS = {
     "activation_status",
     "activation_doctrine",
     "activation_gap_list",
+    "activation_completion_criteria",
     "local_activation_runbook",
     "ci_failure_guide",
     "role_transition_policy",
