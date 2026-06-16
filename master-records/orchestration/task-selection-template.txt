@@ -1,0 +1,24 @@
+Task selection template
+
+Generated:
+
+Cycle id:
+-
+
+Candidate task:
+-
+
+Current lifecycle state:
+-
+
+Evidence records:
+-
+
+Selection result:
+-
+
+Reason:
+-
+
+Next evaluation phase:
+-
