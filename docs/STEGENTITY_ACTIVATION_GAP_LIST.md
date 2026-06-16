@@ -25,7 +25,8 @@ Current local activation is supported by:
 - execution receipts;
 - refusal receipts;
 - outcome reports;
-- role enforcement output.
+- role enforcement output;
+- completion invariant output.
 
 ## Activation Gap Checklist
 
@@ -54,13 +55,15 @@ Implemented:
 
 - when `completion_invariant_required` is true, apply requires every operation to declare `expected_sha256`;
 - local adapter verifies written output hash against expected hash when declared;
-- missing expected hash becomes a refused apply before mutation.
+- missing expected hash becomes a refused apply before mutation;
+- successful apply outcomes include first-class `completion_invariant` results;
+- successful execution receipts include first-class `completion_invariant` results.
 
 Still needed:
 
 - verify richer destination state beyond single-file hash evidence;
 - ensure completion cannot be asserted from platform mutation alone across all adapters;
-- expose completion-invariant result as a first-class receipt/outcome field.
+- expand completion-invariant handling beyond local filesystem operations.
 
 Activation impact: high.
 
@@ -139,7 +142,7 @@ Activation impact: high.
 ## Current Estimate
 
 ```text
-StegEntity Repo Activation: ~85% complete vs Repo Activation
+StegEntity Repo Activation: ~86% complete vs Repo Activation
 ```
 
 This estimate is local-activation oriented. It does not claim production completion.
