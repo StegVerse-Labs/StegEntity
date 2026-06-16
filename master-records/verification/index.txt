@@ -1,0 +1,25 @@
+Verification index
+
+Generated: 2026-06-15
+
+Purpose:
+Track verification records that support task lifecycle decisions.
+
+Templates:
+- master-records/verification/TEMPLATE.txt
+
+Active verification records:
+- master-records/verification/2026-06-15-site-exchange-check.txt
+
+Current verification summary:
+- task: 2026-06-14-site-exchange-pages
+- result: waiting remains correct
+- confirmed: data/governance/sample-exchange.json
+- missing: governance/exchange-export.html
+- missing: governance/exchange-check.html
+
+Promotion evidence:
+- not sufficient for completion
+
+Next allowed action:
+- apply missing Site pages
