@@ -1,0 +1,20 @@
+Pending dependency resolution
+
+Generated: 2026-06-15
+
+Anchor task:
+- 2026-06-14-site-exchange-pages
+
+Pending dependencies:
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+When resolved, create:
+- completed task record
+- receipt reference entry
+- artifact history entry
+- activation status update
+- Site issue update
+
+Current state:
+- pending target files
