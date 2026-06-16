@@ -1,0 +1,21 @@
+Readiness gate template
+
+Generated:
+
+Task:
+-
+
+Readiness status:
+-
+
+Required confirmations:
+-
+
+Confirmed so far:
+-
+
+Missing:
+-
+
+Completion gate:
+-
