@@ -1,0 +1,24 @@
+Site exchange pages readiness gate
+
+Generated: 2026-06-15
+
+Task:
+- 2026-06-14-site-exchange-pages
+
+Readiness status:
+- not ready for completion
+
+Required confirmations:
+- data/governance/sample-exchange.json exists
+- governance/exchange-export.html exists
+- governance/exchange-check.html exists
+
+Confirmed so far:
+- data/governance/sample-exchange.json
+
+Missing:
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+Completion gate:
+- remain waiting until all required confirmations are true
