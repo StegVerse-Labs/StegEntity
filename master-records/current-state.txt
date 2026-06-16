@@ -1,0 +1,33 @@
+Master-Records current state
+
+Generated: 2026-06-15
+
+Primary task:
+- 2026-06-14-site-exchange-pages
+
+Primary target:
+- StegVerse-Labs/Site
+
+Current state:
+- waiting
+
+Waiting on:
+- governance/exchange-export.html
+- governance/exchange-check.html
+
+Already present:
+- data/governance/sample-exchange.json
+
+Next eligible now:
+- keep issue handoff open
+- keep waiting record active
+- use next queue to prevent premature completion
+
+Eligible after pages exist:
+- completed task record
+- receipt reference entry
+- artifact history entry
+- activation status update
+
+Activation:
+- 75 percent
