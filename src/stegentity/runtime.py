@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from .adapters import LocalFSAdapter
 from .authority import AuthorityToken
@@ -31,8 +31,18 @@ class StegEntityRuntime:
         data["role_enforcement"] = role_enforcement_result(capsule.role_context, mode)
         return data
 
+    def _completion_invariant_blocks(self, capsule: MaintenanceCapsule) -> List[str]:
+        if not capsule.role_context.get("completion_invariant_required"):
+            return []
+        blocks: List[str] = []
+        for op in capsule.operations:
+            if not op.expected_sha256:
+                blocks.append(f"completion_invariant_missing_expected_sha256:{op.op_id}")
+        return blocks
+
     def _enforce_apply_role_context(self, capsule: MaintenanceCapsule, capsule_hash: str, receipt: VerifiedReceipt, token: AuthorityToken) -> None:
         blocks = apply_role_context_blocks(capsule.role_context)
+        blocks.extend(self._completion_invariant_blocks(capsule))
         if blocks:
             role_enforcement = role_enforcement_result(capsule.role_context, "apply")
             refusal = make_blocked_apply_receipt(
@@ -42,7 +52,7 @@ class StegEntityRuntime:
                 authority_token_id=token.token_id,
                 adapter=capsule.adapter,
                 target=capsule.target,
-                reason="role_context_apply_block",
+                reason="apply_precondition_block",
                 blocks=blocks,
                 role_context=capsule.role_context,
                 role_enforcement=role_enforcement,
@@ -55,7 +65,7 @@ class StegEntityRuntime:
                 "created_at": now_text(),
                 "capsule_id": capsule.capsule_id,
                 "capsule_hash": capsule_hash,
-                "reason": "role_context_apply_block",
+                "reason": "apply_precondition_block",
                 "blocks": blocks,
                 "mutation_attempted": False,
                 "execution_receipt_emitted": False,
@@ -63,7 +73,7 @@ class StegEntityRuntime:
                 "blocked_apply_receipt_hash": refusal["receipt_hash"],
             }, "apply")
             self._write_outcome(capsule.capsule_id, "apply.blocked", outcome)
-            raise ValidationError(f"role_context_apply_block:{blocks}")
+            raise ValidationError(f"apply_precondition_block:{blocks}")
 
     def validate_authority(self, capsule: MaintenanceCapsule, receipt: VerifiedReceipt, token: AuthorityToken) -> str:
         capsule_hash = capsule.hash()
