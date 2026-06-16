@@ -18,6 +18,9 @@ KNOWN_ROLE_TRANSITIONS = {
     "RT-006",
 }
 
+PROPOSAL_TO_EXECUTION_TRANSITIONS = {"RT-002"}
+AUTHORITY_EVIDENCE_VALUES = {"receipt+tvc+capsule", "tvc+receipt+capsule", "explicit_authority"}
+
 
 def role_context_warnings(role_context: Dict[str, Any]) -> List[str]:
     """Return warning-only role context findings.
@@ -45,12 +48,22 @@ def role_context_warnings(role_context: Dict[str, Any]) -> List[str]:
     return warnings
 
 
+def _has_explicit_authority_evidence(role_context: Dict[str, Any]) -> bool:
+    evidence = role_context.get("authority_evidence") or role_context.get("symmetry_basis")
+    if isinstance(evidence, str):
+        return evidence in AUTHORITY_EVIDENCE_VALUES
+    if isinstance(evidence, list):
+        return any(isinstance(item, str) and item in AUTHORITY_EVIDENCE_VALUES for item in evidence)
+    return False
+
+
 def apply_role_context_blocks(role_context: Dict[str, Any]) -> List[str]:
     """Return apply-time role context blocks.
 
     This is a narrow hard-enforcement slice. It blocks incomplete role context,
-    unknown declared role transitions, and invalid completion invariant types
-    during apply. Validation and dry-run remain warning-only.
+    unknown declared role transitions, invalid completion invariant types, and
+    proposal-to-execution posture without explicit authority evidence during
+    apply. Validation and dry-run remain warning-only.
     """
     blocks: List[str] = []
     if not role_context:
@@ -67,6 +80,9 @@ def apply_role_context_blocks(role_context: Dict[str, Any]) -> List[str]:
     completion_required = role_context.get("completion_invariant_required")
     if completion_required is not None and not isinstance(completion_required, bool):
         blocks.append("role_context_completion_invariant_required_must_be_bool")
+
+    if str(role_transition) in PROPOSAL_TO_EXECUTION_TRANSITIONS and not _has_explicit_authority_evidence(role_context):
+        blocks.append("role_context_proposal_execution_requires_authority_evidence")
 
     return blocks
 
