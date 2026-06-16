@@ -59,6 +59,7 @@ It includes:
 - Activation gap checklist.
 - Local activation runbook.
 - Machine-readable activation manifest.
+- Activation manifest verifier.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - Apply-time required role context enforcement.
@@ -111,6 +112,12 @@ Run the role-context demo checks:
 python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
 python tools/check_role_context_demo.py
+```
+
+Run the activation manifest verifier:
+
+```bash
+python tools/verify_activation_manifest.py
 ```
 
 Run the local activation check:
@@ -263,6 +270,7 @@ Local verification:
 ```bash
 python tools/build_role_context_demo.py
 python tools/verify_generated_role_context_demo.py
+python tools/verify_activation_manifest.py
 python -m unittest discover tests
 python tools/check_role_context_demo.py
 python tools/check_repo_activation.py
