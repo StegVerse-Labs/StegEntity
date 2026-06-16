@@ -57,6 +57,7 @@ It includes:
 - Role transition enforcement policy.
 - Repo activation doctrine.
 - Activation gap checklist.
+- Local activation runbook.
 - Optional role context parsing and preservation.
 - Warning-only role context validation.
 - Apply-time required role context enforcement.
@@ -122,6 +123,8 @@ For activation status, see `ACTIVATION_STATUS.md`.
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For remaining activation work, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
+
+For operator steps, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
 For the full verification path, see `docs/STEGENTITY_VERIFICATION.md`.
 
@@ -202,6 +205,8 @@ For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POL
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For activation gaps, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
+
+For activation runbook, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
 For activation status, see `ACTIVATION_STATUS.md`.
 
