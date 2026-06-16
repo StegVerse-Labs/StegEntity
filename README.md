@@ -57,6 +57,7 @@ It includes:
 - Role transition enforcement policy.
 - Repo activation doctrine.
 - Activation gap checklist.
+- Activation completion criteria.
 - Local activation runbook.
 - CI failure guide.
 - Machine-readable activation manifest.
@@ -134,6 +135,8 @@ For machine-readable activation posture, see `activation_manifest.json`.
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For remaining activation work, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
+
+For activation completion criteria, see `docs/STEGENTITY_ACTIVATION_COMPLETION_CRITERIA.md`.
 
 For operator steps, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
@@ -218,6 +221,8 @@ For role transition enforcement policy, see `docs/STEGENTITY_ROLE_TRANSITION_POL
 For activation scope, see `docs/STEGENTITY_ACTIVATION.md`.
 
 For activation gaps, see `docs/STEGENTITY_ACTIVATION_GAP_LIST.md`.
+
+For activation completion criteria, see `docs/STEGENTITY_ACTIVATION_COMPLETION_CRITERIA.md`.
 
 For activation runbook, see `docs/STEGENTITY_LOCAL_ACTIVATION_RUNBOOK.md`.
 
